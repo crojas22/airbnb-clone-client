@@ -1,11 +1,12 @@
 const express = require('express');
 const config = require('./config');
-const path = require("path");
 const serverRenderer = require("./serverRender");
+const compression = require('compression');
 
 const app = express();
+app.use(compression());
 
-app.get('/', serverRenderer);
+app.get(['/', '/listing/home/:id', '/listing/experience/:id'], serverRenderer);
 
 app.use(express.static('build'));
 
