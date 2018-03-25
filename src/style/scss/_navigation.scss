@@ -1,0 +1,98 @@
+.h-3rem {
+  height: 3rem !important;
+}
+
+.py-25 {
+  padding-top: 0.70rem;
+  padding-bottom: 0.70rem;
+}
+
+.smaller-font {
+  font-size: 1rem;
+}
+
+.smallest-font {
+  font-size: 0.75rem;
+}
+
+.font-regular {
+  font-size: 0.90rem;
+}
+
+.upper-small {
+  font-size: 0.75rem;
+}
+
+.py-7 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+#navigation {
+  ul {
+    height: 100vh;
+  }
+  li {
+    padding: 1rem 0;
+    font-weight: lighter;
+  }
+}
+
+.modal {
+  @include flex-center(flex, center, null);
+  position: fixed;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+#dropDown-options {
+  min-height: 20rem;
+  border-top: 2px solid #008488 !important;
+}
+
+.font-2 {
+  font-size: 1.3rem;
+}
+
+.text-brown {
+  color: #734f22;
+}
+
+.bg-lightWhite {
+  background-color: rgba(255,255,255,0.95);
+}
+
+.bg-lightDark {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.bg-leftWhite {
+  background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0));
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.z-100 {
+  z-index: 100;
+}
+
+.z-150 {
+  z-index: 150;
+}
+
+.z-200 {
+  z-index: 200;
+}
+
+.z-negative {
+  z-index: -200;
+}
+

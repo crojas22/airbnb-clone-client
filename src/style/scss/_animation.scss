@@ -1,0 +1,19 @@
+.rotate-up {
+  transform: rotate(180deg);
+  transition: transform 300ms ease;
+}
+
+.rotate-down {
+  transform: rotate(0deg);
+  transition: transform 300ms ease;
+}
+
+.move-up {
+  transform: translateY(-99.9vh);
+  transition: transform 250ms ease-in;
+}
+
+.move-down {
+  transform: translateY(0);
+  transition: transform 250ms ease-out;
+}

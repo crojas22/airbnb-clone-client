@@ -1,0 +1,12 @@
+@mixin flex-center($display, $j-content, $align-items) {
+  display: $display;
+  justify-content: $j-content;
+  align-items: $align-items;
+}
+
+@mixin width-height($width, $height) {
+  height: $height !important;
+  max-height: $height;
+  min-width: $width;
+  max-width: $width;
+}

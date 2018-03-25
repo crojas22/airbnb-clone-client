@@ -1,0 +1,41 @@
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.position-lb-0 {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.position-rt-0 {
+  right: 0;
+  top: 0.95rem;
+}
+
+.position-right-bottom {
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+.position-right-top {
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.position-left-bottom {
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+.host-picture-circle {
+  @include width-height(3rem, 3rem);
+  border-radius: 50%;
+  background-color: black;
+  right: 0.5rem;
+  bottom: 0;
+}
+
+.text-green {
+  color: #008487;
+}
