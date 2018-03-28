@@ -1,4 +1,7 @@
 import React from 'react';
+import Loadable from 'react-loadable';
+import { getBundles } from 'react-loadable/webpack';
+import stats from '../build/react-loadable.json';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from "react-router-dom";
 import { createEpicMiddleware } from "redux-observable";
@@ -22,16 +25,24 @@ module.exports =  (req, res) => {
       store = createStore(reducer, applyMiddleware(createEpicMiddleware(epics)));
     
     const html = renderToString(
-      <StaticRouter location={req.url} context={context}>
-        <Provider store={store}>
-          <App/>
-        </Provider>
-      </StaticRouter>
+      <Loadable.Capture report={moduleName => modules.push(moduleName)}>
+        <StaticRouter location={req.url} context={context}>
+          <Provider store={store}>
+            <App/>
+          </Provider>
+        </StaticRouter>
+      </Loadable.Capture>
     );
+  
+    let bundles = getBundles(stats, modules);
     
     return res.send(
       htmlData
-        .replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+        .replace('<div id="root"></div>', `<div id="root">${html}</div>${
+          bundles
+            .filter(each => each.file.endsWith('js'))
+            .map(bundle => `<script type="text/javascript" src="${bundle.file}"></script>`)
+          }`)
     )
   })
 };

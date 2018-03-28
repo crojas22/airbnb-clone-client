@@ -5,7 +5,8 @@ require('babel-register')({
   presets: ['env', 'react-app'],
   plugins: [
     'syntax-dynamic-import',
-    'dynamic-import-node'
+    'dynamic-import-node',
+    'react-loadable/babel'
   ]
 });
 

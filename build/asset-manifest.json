@@ -1,6 +1,12 @@
 {
+  "./Homepage.js": "static/js/./Homepage.af5ec3dd.chunk.js",
+  "./Homepage.js.map": "static/js/./Homepage.af5ec3dd.chunk.js.map",
+  "./IndividualListing.js": "static/js/./IndividualListing.2a121317.chunk.js",
+  "./IndividualListing.js.map": "static/js/./IndividualListing.2a121317.chunk.js.map",
   "main.css": "static/css/main.4d17b8a8.css",
   "main.css.map": "static/css/main.4d17b8a8.css.map",
-  "main.js": "static/js/main.d4cbf3a2.js",
-  "main.js.map": "static/js/main.d4cbf3a2.js.map"
+  "main.js": "static/js/main.718d98dc.js",
+  "main.js.map": "static/js/main.718d98dc.js.map",
+  "manifest.js": "static/js/manifest.7ba050dd.js",
+  "manifest.js.map": "static/js/manifest.7ba050dd.js.map"
 }

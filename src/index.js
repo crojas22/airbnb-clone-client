@@ -9,6 +9,7 @@ import './style/css/index.css';
 import App from './js/components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from "react-router-dom";
+import Loadable from 'react-loadable';
 
 
 const epicMiddleware = createEpicMiddleware(epics);
@@ -17,12 +18,15 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(reducer, composeEnhancers(applyMiddleware(epicMiddleware)));
 
-ReactDOM.hydrate(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>,
-  document.getElementById('root')
-);
 // registerServiceWorker();
+
+Loadable.preloadReady().then(() => {
+  ReactDOM.hydrate(
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>,
+    document.getElementById('root')
+  );
+});
