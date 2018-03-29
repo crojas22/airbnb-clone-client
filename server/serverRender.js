@@ -35,7 +35,6 @@ module.exports =  (req, res) => {
     );
   
     let bundles = getBundles(stats, modules);
-    
     return res.send(
       htmlData
         .replace('<div id="root"></div>', `<div id="root">${html}</div>${
