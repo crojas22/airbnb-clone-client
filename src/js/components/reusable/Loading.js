@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../style/css/loading.css';
 
 export const Loading = () => (
   <div className="d-flex justify-content-center align-items-center" style={{height: "100vh"}}>

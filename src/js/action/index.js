@@ -3,6 +3,10 @@ export const fetchData = (type, url) => ({
   url
 });
 
+export const sendAction = type => ({
+  type
+});
+
 export const setData = (type, payload) => ({
   type,
   payload
