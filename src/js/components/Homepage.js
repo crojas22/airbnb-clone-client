@@ -20,14 +20,18 @@ class Homepage extends Component {
       <div>
         <Navigation />
         <MainGallery />
-        <div className="mx-xl-5">
-          <ExploreLinks />
-          <AirBnbPlus />
-          <GroupOfLinks title="Homes around the world" to="home"
-                        homeListing={this.props.homeListing}/>
-          <GroupOfLinks title="Experiences in the spotlight" to="experience"
-                        homeListing={this.props.experienceListing}/>
+        <div className="bg-white">
+          <div className="mx-xl-5">
+            <ExploreLinks />
+          </div>
         </div>
+          <div className="mx-xl-5">
+            <AirBnbPlus />
+            <GroupOfLinks title="Homes around the world" to="home"
+                          homeListing={this.props.homeListing}/>
+            <GroupOfLinks title="Experiences in the spotlight" to="experience"
+                          homeListing={this.props.experienceListing}/>
+          </div>
       </div>
     )
   }

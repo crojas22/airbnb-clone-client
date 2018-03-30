@@ -10,13 +10,13 @@ const ScrollPosition = InnerComponent => target => {
     };
     
     componentDidMount() {
-      this.subscription = Observable.fromEvent(document, 'scroll')
+      this.subscription$ = Observable.fromEvent(document, 'scroll')
         .map(event => event.target.defaultView.document.querySelector(target).getBoundingClientRect().y)
         .subscribe(y => y < 17 ? this.setState({active:true}) : this.setState({active:false}));
     }
   
     componentWillUnmount() {
-      this.subscription.unsubscribe();
+      this.subscription$.unsubscribe();
     }
     
     render() {

@@ -17,3 +17,25 @@
   transform: translateY(0);
   transition: transform 250ms ease-out;
 }
+
+.move-up-slow {
+  animation: moveSlow 30s ease-in-out, goodBye 6s 2s ease-in;
+}
+
+@keyframes goodBye {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes moveSlow {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-99.9vh);
+  }
+}

@@ -20,7 +20,7 @@ const AirBnbPlus = () => (
                  classes="border-shadow mt-3 text-dark border bg-white rounded py-2 py-md-3 px-4"/>
       </div>
       <div className="position-absolute border rounded d-block bg-leftWhite h-300 w-100">
-        <div id="plus-img" className="position-absolute z-negative">
+        <div id="plus-img" className="position-absolute z-negative100">
         </div>
       </div>
     </div>

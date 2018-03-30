@@ -31,6 +31,7 @@
     "html-webpack-plugin": "2.29.0",
     "ignore-styles": "^5.0.1",
     "jest": "20.0.4",
+    "node-sass": "^4.8.3",
     "nodemon": "^1.17.2",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -51,6 +52,7 @@
     "babel-preset-react": "^6.24.1",
     "compression": "^1.7.2",
     "express": "^4.16.3",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-icons": "^2.2.7",
@@ -65,6 +67,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "build-server": "NODE_ENV=production babel ./server -d ./public --copy-iles -s inline",
+    "sass:watch": "node-sass -w src/style/scss -o src/style/css",
     "test": "node scripts/test.js --env=jsdom",
     "server": "NODE_ENV=production nodemon --exec node ./server/bootstrap.js --ignore public/"
   },
