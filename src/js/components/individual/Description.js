@@ -13,11 +13,11 @@ const Description = props => (
     {
       props.activeDrop ?
         <div>
-          <TitleParagraph title="The space"
+          <TitleParagraph title={<h6>The space</h6>}
                           body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin.
                             Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin."/>
-          <TitleParagraph title="Guest access"
+          <TitleParagraph title={<h6>Guest access</h6>}
                           body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin.
                             Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.
                             Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.

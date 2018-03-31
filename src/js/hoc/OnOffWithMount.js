@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { fetchData, sendAction } from "../action";
 import { Loading } from "../components/reusable/Loading";
@@ -37,6 +38,10 @@ const OnOffWithMount = InnerComponent => parameter => {
       )
     }
   }
+  
+  Wrapper.propTypes = {
+    listing: PropTypes.object.isRequired
+  };
   
   const mapStateToProps = state => ({
     listing: state[parameter[1]]

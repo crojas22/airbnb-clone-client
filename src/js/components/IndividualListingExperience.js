@@ -19,6 +19,7 @@ import Navigation from "./reusable/Navigation";
 import { BtnInput } from "./reusable/Buttons";
 import FullPageModal from "./reusable/FullPageModal";
 import OnOffWithMount from "../hoc/OnOffWithMount";
+import GoogleMapApi from "./reusable/GoogleMapApi";
 
 const IndividualListingExperience = props => {
   return(
@@ -46,7 +47,7 @@ const IndividualListingExperience = props => {
                   <FaComments size={20} /> Offered in {props.listing.language}
                 </div>
               </div>
-              <TitleParagraph title="What we’ll do"
+              <TitleParagraph title={<h6>What we’ll do</h6>}
                               classes="border-bottom pt-4 pb-3"
                               body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin.
                               Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.
@@ -54,13 +55,23 @@ const IndividualListingExperience = props => {
                               ultrices sit amet turpis. Vivamus blandit neque et arcu ornare mollis. Curabitur semper egestas nulla.
                               In aliquet, lectus vitae pharetra pulvinar, mauris libero blandit ante, quis sagittis est purus nec urna.
                               Ut maximus, arcu et pretium pharetra, odio tortor semper velit, eu aliquet nisi odio ac neque."/>
-              <TitleParagraph title="What I’ll provide"
+              <TitleParagraph title={<h6>What I’ll provide</h6>}
                               classes="border-bottom pt-4 pb-3"
                               body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin.
                               Quisque ornare arcu sed urna commodo, eu blandit erat ultrices."/>
-              <TitleParagraph title="Who can come"
+              <TitleParagraph title={<h6>Who can come</h6>}
                               classes="border-bottom pt-4 pb-3"
                               body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin"/>
+              <GoogleMapApi
+                info={
+                  <TitleParagraph title={<h6 className="mb-3">Where we'll be</h6>}
+                                  body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin.
+                            Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.
+                            Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin."/>
+                }
+                classes="my-3"
+                location={`${props.listing.city}, ${props.listing.state} ${props.listing.country}`}/>
               <Reviews />
             </div>
             <FixedSide class1="d-none d-md-block col position-fixed position-rt-0"
@@ -140,13 +151,12 @@ const ExperienceSide = props => (
 
 export const TitleParagraph = props => (
   <div className={"font-weight-light " + props.classes}>
-    <h6>{props.title}</h6>
+    {props.title}
     <p>
       {props.body}
     </p>
   </div>
 );
-
 
 const SaveOrShareBottom = () => (
   <div className="d-flex justify-content-between py-4">

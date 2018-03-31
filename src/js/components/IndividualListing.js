@@ -15,6 +15,8 @@ import { FETCH_INDIVIDUAL_HOME_DATA } from "../type";
 import Navigation from "./reusable/Navigation";
 import FullPageModal from "./reusable/FullPageModal";
 import OnOffWithMount from "../hoc/OnOffWithMount";
+import GoogleMapApi from "./reusable/GoogleMapApi";
+import { TitleParagraph } from "./IndividualListingExperience";
 
 const IndividualListing = props => {
   return(
@@ -53,6 +55,16 @@ const IndividualListing = props => {
             </div>
             <Description />
             <Reviews />
+            <GoogleMapApi
+              info={
+                <TitleParagraph title={<h3 className="mb-3">The neighborhood</h3>}
+                                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin.
+                            Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.
+                            Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin."/>
+              }
+              classes="mb-5"
+              location={`${props.listing.city}, ${props.listing.state} ${props.listing.country}`}/>
           </div>
           <FixedSide class1="d-none d-lg-block col position-fixed position-rt-0"
                      class2="container"

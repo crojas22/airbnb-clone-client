@@ -3,7 +3,7 @@ import Review from "./Review";
 import StarRating from "../reusable/StarRating";
 
 const Reviews = () => (
-  <div className="mb-5">
+  <div className="mb-4">
     <div className="d-flex pb-3 pt-4 border-bottom">
       <h3 className="mr-3">
         324 Reviews
