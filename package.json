@@ -64,11 +64,12 @@
     "rxjs": "^5.5.7"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "react": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "build-server": "NODE_ENV=production babel ./server -d ./public --copy-iles -s inline",
+    "build-server": "NODE_ENV=production babel ./server -d ./buildServer --copy-iles -s inline",
     "sass:watch": "node-sass -w src/style/scss -o src/style/css",
     "test": "node scripts/test.js --env=jsdom",
+    "start": "NODE_ENV=production node ./buildServer/bootstrap.js",
     "server": "NODE_ENV=production nodemon --exec node ./server/bootstrap.js --ignore public/"
   },
   "jest": {
