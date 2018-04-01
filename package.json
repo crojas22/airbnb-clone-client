@@ -69,7 +69,7 @@
     "build-server": "NODE_ENV=production babel ./server -d ./buildServer --copy-iles -s inline",
     "sass:watch": "node-sass -w src/style/scss -o src/style/css",
     "test": "node scripts/test.js --env=jsdom",
-    "start": "NODE_ENV=production node ./buildServer/bootstrap.js",
+    "start": "NODE_ENV=production node ./server/bootstrap.js",
     "server": "NODE_ENV=production nodemon --exec node ./server/bootstrap.js --ignore public/"
   },
   "jest": {
