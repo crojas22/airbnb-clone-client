@@ -10,8 +10,7 @@ const IndividualMainGallery = props => (
     <BtnInput title="View Photos"
               classes="d-none d-sm-block position-absolute position-left-bottom border-shadow"/>
     <div className="d-sm-none position-absolute position-right-top">
-      <MdAirplay color="white" className="mr-3" size={25}/>
-      <MdFavoriteOutline color="white" size={25}/>
+      <HeartShareLinks />
     </div>
     <div className="d-none d-sm-block position-absolute position-right-top">
       <BtnInput title={<div><MdAirplay size={20}/> Share</div>}
@@ -42,5 +41,12 @@ const IndividualMainGallery = props => (
 IndividualMainGallery.defaultProps = {
   photos: []
 };
+
+export const HeartShareLinks = () => (
+  <React.Fragment>
+    <MdAirplay color="white" className="mr-3" size={25}/>
+    <MdFavoriteOutline color="white" size={25}/>
+  </React.Fragment>
+);
 
 export default IndividualMainGallery;

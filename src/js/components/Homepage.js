@@ -12,7 +12,7 @@ import GroupOfLinks from "./homepage/GroupOfLinks";
 class Homepage extends Component {
   
   componentDidMount() {
-    this.props.fetchData(FETCH_DATA, "v1/home")
+    this.props.fetchData(FETCH_DATA, "v1/homepage")
   }
   
   render() {

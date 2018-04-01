@@ -7,7 +7,7 @@
   transition: transform 300ms ease; }
 
 .move-up {
-  transform: translateY(-99.9vh);
+  transform: translateY(-100vh);
   transition: transform 250ms ease-in; }
 
 .move-down {

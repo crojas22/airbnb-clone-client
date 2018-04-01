@@ -20,13 +20,24 @@ import { BtnInput } from "./reusable/Buttons";
 import FullPageModal from "./reusable/FullPageModal";
 import OnOffWithMount from "../hoc/OnOffWithMount";
 import GoogleMapApi from "./reusable/GoogleMapApi";
+import { HeartShareLinks } from "./individual/IndividualMainGallery";
 
 const IndividualListingExperience = props => {
   return(
     <div>
       <Navigation/>
-      <div className="container-fluid border-top px-0">
-        <Picture classes="d-md-none" photos={props.listing.photos}/>
+      <div className="container-fluid px-0">
+        <Picture classes="d-md-none position-relative"
+                 photos={props.listing.photos}
+                 secondInnerComponent={
+                   <div className="position-absolute position-right-top">
+                     <HeartShareLinks/>
+                   </div>
+                 }
+                 innerComponent={
+                   <BtnInput title="More photos"
+                             classes="position-absolute position-right-bottom border-shadow"/>
+                 }/>
         <div className="container mt-3 mb-5">
           <div className="row">
             <div className="point-reference col-md-7 col-lg-7 col-xl-8 ">
@@ -122,6 +133,12 @@ const IndividualListingExperience = props => {
 
 const Picture = props => (
   <div className={props.classes}>
+    {
+      props.innerComponent
+    }
+    {
+      props.secondInnerComponent
+    }
     <img className="img-fluid w-100"  src={props.photos[1]} alt="experience"/>
   </div>
 );
@@ -132,7 +149,12 @@ Picture.defaultProps = {
 
 const ExperienceSide = props => (
   <React.Fragment>
-    <Picture photos={props.photos}/>
+    <Picture photos={props.photos}
+             classes="position-relative"
+             innerComponent={
+               <BtnInput title="More photos"
+                         classes="position-absolute position-right-top border-shadow"/>
+             }/>
     <FixedPriceButton classes="py-3 border-bottom"
                       price={props.price}
                       button={

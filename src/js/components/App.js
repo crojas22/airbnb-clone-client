@@ -21,10 +21,18 @@ const IndividualListingExperience = Loadable({
   modules: ['./IndividualListingExperience']
 });
 
+const SearchPage = Loadable({
+  loader: () => import(/* webpackChunckName: "./SearchPage"*/ './SearchPage'),
+  loading: Loading,
+  modules: ['./SearchPage']
+});
+
 const App = () => {
   return(
     <Switch>
       <Route exact path='/' component={Homepage}/>
+      <Route exact path='/search' component={SearchPage}/>
+      <Route path='/search/:type' component={SearchPage}/>
       <Route path='/listing/home/:id' component={IndividualListing}/>
       <Route path='/listing/experience/:id' component={IndividualListingExperience}/>
     </Switch>
