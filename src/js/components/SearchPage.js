@@ -9,9 +9,7 @@ const SearchPage = () => {
     <div className="position-relative">
       <Navigation classes="fixed w-100 bg-white z-100"/>
       <SearchFilter classes="fixed w-100 bg-white z-50"/>
-      <div className="mt-6 z-negative w-lg-or-less-100 w-65">
-        <SearchResults />
-      </div>
+      <SearchResults />
       <div className="position-fixed w-35 right-0 top-145">
         <SearchMap />
       </div>

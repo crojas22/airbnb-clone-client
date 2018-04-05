@@ -28,6 +28,14 @@ a {
   cursor: pointer;
 }
 
+
+.color-green {
+  color: #008488;
+  &:hover {
+    color: #008488;
+  }
+}
+
 .border-shadow {
   border: 0.5px solid rgb(235,235,235);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

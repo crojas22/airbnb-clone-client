@@ -250,6 +250,11 @@ a {
 .cursor {
   cursor: pointer; }
 
+.color-green {
+  color: #008488; }
+  .color-green:hover {
+    color: #008488; }
+
 .border-shadow {
   border: 0.5px solid #ebebeb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
