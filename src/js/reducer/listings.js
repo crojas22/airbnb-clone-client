@@ -5,13 +5,13 @@ export const listings = (state={experienceListing:{content:[]}, homeListing:{con
     case SET_DATA:
       return {
         experienceListing: {
-          content: action.payload.experienceListing
-          // content: action.payload.experienceListing.content
+          // content: action.payload.experienceListing
+          content: action.payload.experienceListing.content
   
         },
         homeListing: {
-          content: action.payload.homeListing
-          // content: action.payload.homeListing.content
+          // content: action.payload.homeListing
+          content: action.payload.homeListing.content
   
         }
       };

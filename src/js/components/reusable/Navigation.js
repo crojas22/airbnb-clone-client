@@ -9,7 +9,7 @@ import LogForm from "./LogForm";
 import { SearchInputWithIcon } from "../homepage/MessageWithSearch";
 
 const Navigation = props => (
-  <div id="navigation" className="border-bottom">
+  <div id="navigation" className={"border-bottom "+props.classes}>
     <nav className="py-25 py-lg-0 py-sm-3 navbar-expand-md bg-white position-relative z-200">
       <div className="d-flex align-items-center z-200 justify-content-lg-between">
         <div className="h-3rem px-3 cursor d-flex no-wrap align-items-center d-lg-none" onClick={() => props.clickOnOff("activeDrop")}>

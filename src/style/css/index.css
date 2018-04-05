@@ -199,9 +199,6 @@
 .text-green {
   color: #008487; }
 
-#map {
-  height: 400px; }
-
 @media only screen and (max-width: 576px) {
   .drop {
     border-bottom: 1px solid #dee2e6 !important; } }
@@ -209,6 +206,34 @@
 @media only screen and (min-width: 992px) {
   .w-lg-100 {
     width: 100% !important; } }
+
+@media only screen and (max-width: 992px) {
+  .w-lg-or-less-100 {
+    width: 100% !important; } }
+
+.btn-grey {
+  background-color: white; }
+  .btn-grey:hover {
+    background-color: #F2F2F2;
+    border-color: #F2F2F2; }
+
+.fixed {
+  position: fixed; }
+
+.mt-6 {
+  margin-top: 5rem; }
+
+.w-65 {
+  width: 65%; }
+
+.w-35 {
+  width: 35%; }
+
+.top-145 {
+  top: 145px; }
+
+.right-0 {
+  right: 0; }
 
 body, html {
   margin: 0;

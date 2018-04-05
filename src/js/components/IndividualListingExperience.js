@@ -73,16 +73,16 @@ const IndividualListingExperience = props => {
               <TitleParagraph title={<h6>Who can come</h6>}
                               classes="border-bottom pt-4 pb-3"
                               body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin"/>
-              <GoogleMapApi
-                info={
-                  <TitleParagraph title={<h6 className="mb-3">Where we'll be</h6>}
-                                  body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin.
+              <div className="my-3">
+                <TitleParagraph title={<h6 className="mb-3">Where we'll be</h6>}
+                                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin.
                             Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.
                             Quisque ornare arcu sed urna commodo, eu blandit erat ultrices.
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin."/>
-                }
-                classes="my-3"
-                location={`${props.listing.city}, ${props.listing.state} ${props.listing.country}`}/>
+                <GoogleMapApi
+                  height="400px"
+                  location={`${props.listing.city}, ${props.listing.state} ${props.listing.country}`}/>
+              </div>
               <Reviews />
             </div>
             <FixedSide class1="d-none d-md-block col position-fixed position-rt-0"

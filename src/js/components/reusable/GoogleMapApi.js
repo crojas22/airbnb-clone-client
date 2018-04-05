@@ -32,18 +32,20 @@ class GoogleMapApi extends React.Component {
   render() {
     return(
       <div className={this.props.classes}>
-        {
-          this.props.info
-        }
-        <div id='map'>
+        <div id="map" style={{height: this.props.height}}>
         </div>
       </div>
     )
   }
 }
 
+GoogleMapApi.defaultProps = {
+  height: "400px"
+};
+
 GoogleMapApi.propTypes = {
-  location: PropTypes.string.isRequired
+  location: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired
 };
 
 export default GoogleMapApi;
