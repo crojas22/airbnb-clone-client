@@ -11,8 +11,8 @@ import 'rxjs/add/operator/do';
 
 import { setData } from "../action";
 
-export const url = rest => `http://localhost:8080/api/${rest}`;
-// export const url = rest => `https://airbnb-clone-sql.herokuapp.com/api/${rest}`;
+// export const url = rest => `http://localhost:8080/api/${rest}`;
+export const url = rest => `https://airbnb-clone-sql.herokuapp.com/api/${rest}`;
 
 const fetchData = action$ => (
   action$.ofType(FETCH_DATA)
