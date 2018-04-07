@@ -38,10 +38,8 @@ class MainGallery extends React.Component {
           </div>
           <div id="img2" className={"position-absolute w-100 set-higher z-negative "+(this.state.active===1?"move-up-slow":"d-none")}>
           </div>
-          <div className="d-flex align-items-center justify-content-center set-height">
-            <MessageWithSearch active={this.state.activeModal}
-                               clickOnOff={this.clickOnOff}/>
-          </div>
+          <MessageWithSearch active={this.state.activeModal}
+                             clickOnOff={this.clickOnOff}/>
         </div>
       </div>
     )

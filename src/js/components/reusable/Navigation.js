@@ -53,9 +53,9 @@ const Navigation = props => (
     </nav>
     <div className={"d-lg-none z-150 position-relative"+(props.activeDrop?" move-down": " move-up")}>
       <ul className="w-100 px-3 pb-1 position-absolute bg-white">
-        <li className="border-bottom">
+        <Link to="/" className="border-bottom d-block">
           Home
-        </li>
+        </Link>
         <li>
           Sign up
         </li>

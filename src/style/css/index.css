@@ -55,7 +55,7 @@
 #navigation ul {
   height: 100vh; }
 
-#navigation li {
+#navigation li, #navigation a {
   padding: 1rem 0;
   font-weight: lighter; }
 
