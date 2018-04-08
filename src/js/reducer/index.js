@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import { individualExperienceListing, individualHomeListing, listings } from "./listings";
+import { individualExperienceListing, individualHomeListing, listings, searchData } from "./listings";
 
 const reducer  = combineReducers({
   listings,
   individualHomeListing,
-  individualExperienceListing
+  individualExperienceListing,
+  searchData
 });
 
 export default reducer;

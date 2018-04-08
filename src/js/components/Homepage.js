@@ -9,6 +9,7 @@ import { fetchData } from "../action";
 import { FETCH_DATA } from "../type";
 import GroupOfLinks from "./homepage/GroupOfLinks";
 import { BtnLink } from "./reusable/Buttons";
+import { scrollTop } from "./homepage/SingleLink";
 
 class Homepage extends Component {
   
@@ -30,12 +31,12 @@ class Homepage extends Component {
             <AirBnbPlus />
             <GroupOfLinks title="Homes around the world" to="home"
                           linkTo={
-                            <BtnLink to="search/homes" classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
+                            <BtnLink to="search/homes" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
                           }
                           homeListing={this.props.homeListing}/>
             <GroupOfLinks title="Experiences in the spotlight" to="experience"
                           linkTo={
-                            <BtnLink to="search/homes" classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
+                            <BtnLink to="search/homes" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
                           }
                           homeListing={this.props.experienceListing}/>
           </div>

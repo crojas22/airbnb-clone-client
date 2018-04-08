@@ -89,7 +89,7 @@
   background-color: rgba(0, 0, 0, 0.8); }
 
 .bg-leftWhite {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); }
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.2), transparent); }
 
 .z-50 {
   z-index: 50; }
@@ -110,7 +110,6 @@
   z-index: -100; }
 
 .size-190-85 {
-  height: !important;
   min-width: 190px;
   max-width: 190px; }
 
@@ -147,7 +146,7 @@
   background-size: cover; }
 
 #plus-img {
-  background: url("/images/misc/airbnbplus.jpeg") no-repeat center bottom;
+  background: url("/images/misc/plus.jpeg") no-repeat center bottom;
   background-size: cover;
   height: 300px;
   width: 100%; }

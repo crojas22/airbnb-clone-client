@@ -1,8 +1,8 @@
 import { combineEpics } from 'redux-observable';
 import {
-  FETCH_DATA, FETCH_INDIVIDUAL_EXPERIENCE_DATA, FETCH_INDIVIDUAL_HOME_DATA, SET_DATA,
+  FETCH_DATA, FETCH_INDIVIDUAL_EXPERIENCE_DATA, FETCH_INDIVIDUAL_HOME_DATA, FETCH_SEARCH_DATA, SET_DATA,
   SET_INDIVIDUAL_EXPERIENCE_DATA,
-  SET_INDIVIDUAL_HOME_DATA
+  SET_INDIVIDUAL_HOME_DATA, SET_SEARCH_DATA
 } from "../type";
 import { ajax } from 'rxjs/observable/dom/ajax';
 import 'rxjs/add/operator/mergeMap';
@@ -20,6 +20,12 @@ const fetchData = action$ => (
     .map(response => setData(SET_DATA, response))
 );
 
+const fetchSearchData = action$ => (
+  action$.ofType(FETCH_SEARCH_DATA)
+    .mergeMap(action => ajax.getJSON(url(action.url)))
+    .map(response => setData(SET_SEARCH_DATA, response.content))
+);
+
 const fetchIndividualHomeData = action$ => (
   action$.ofType(FETCH_INDIVIDUAL_HOME_DATA)
     .mergeMap(action => ajax.getJSON(url(action.url)))
@@ -35,5 +41,6 @@ const fetchIndividualExperienceData = action$ => (
 export default combineEpics(
   fetchData,
   fetchIndividualHomeData,
-  fetchIndividualExperienceData
+  fetchIndividualExperienceData,
+  fetchSearchData
 );
