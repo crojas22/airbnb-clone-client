@@ -20,7 +20,7 @@ class SearchPage extends Component {
         <SearchFilter classes="fixed w-100 bg-white z-50"/>
         <SearchResults data={this.props.data}/>
         <div className="position-fixed w-35 right-0 top-145">
-          <SearchMap />
+          <SearchMap data={this.props.data}/>
         </div>
       </div>
     )

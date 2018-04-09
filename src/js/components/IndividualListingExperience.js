@@ -36,7 +36,7 @@ const IndividualListingExperience = props => {
                  }
                  innerComponent={
                    <BtnInput title="More photos"
-                             classes="position-absolute position-right-bottom border-shadow"/>
+                             classes="position-absolute position-right-bottom border-shadow bg-white"/>
                  }/>
         <div className="container mt-3 mb-5">
           <div className="row">
@@ -82,6 +82,9 @@ const IndividualListingExperience = props => {
                 <GoogleMapApi
                   height="400px"
                   location={`${props.listing.city}, ${props.listing.state} ${props.listing.country}`}/>
+                <div className="my-2 text-muted font-weight-light">
+                  Exact location information is provided after a booking is confirmed.
+                </div>
               </div>
               <Reviews />
             </div>
@@ -153,7 +156,7 @@ const ExperienceSide = props => (
              classes="position-relative"
              innerComponent={
                <BtnInput title="More photos"
-                         classes="position-absolute position-right-top border-shadow"/>
+                         classes="position-absolute position-right-top border-shadow bg-white"/>
              }/>
     <FixedPriceButton classes="py-3 border-bottom"
                       price={props.price}

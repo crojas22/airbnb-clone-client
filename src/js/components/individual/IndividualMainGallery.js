@@ -6,17 +6,17 @@ import { BtnInput } from "../reusable/Buttons";
 const IndividualMainGallery = props => (
   <div className="position-relative cursor w-100">
     <BtnInput title="View Photos"
-              classes="d-sm-none position-absolute position-right-bottom border-shadow"/>
+              classes="d-sm-none position-absolute position-right-bottom border-shadow bg-white"/>
     <BtnInput title="View Photos"
-              classes="d-none d-sm-block position-absolute position-left-bottom border-shadow"/>
+              classes="d-none d-sm-block position-absolute position-left-bottom border-shadow bg-white"/>
     <div className="d-sm-none position-absolute position-right-top">
       <HeartShareLinks />
     </div>
     <div className="d-none d-sm-block position-absolute position-right-top">
       <BtnInput title={<div><MdAirplay size={20}/> Share</div>}
-                classes="border-shadow mr-3"/>
+                classes="border-shadow mr-3 bg-white"/>
       <BtnInput title={<div><MdFavoriteOutline size={20}/> Save</div>}
-                classes="border-shadow"/>
+                classes="border-shadow bg-white"/>
     </div>
     <div className="d-sm-none">
       <img className="img-fluid w-100" src={props.photos[0]} alt="home"/>

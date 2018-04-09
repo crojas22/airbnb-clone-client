@@ -14,7 +14,7 @@ const SearchResults = props => {
         </h5>
         <div className="row my-4">
           {
-            FunctionArray.renderComponentsWStyle(props.data, "home", SingleLink, "col-lg-6 col-xl-4 col-sm-6 my-2")
+            FunctionArray.renderComponentsWStyle(props.data, true ,"home", SingleLink, "col-lg-6 col-xl-4 col-sm-6 my-2")
           }
         </div>
       </div>

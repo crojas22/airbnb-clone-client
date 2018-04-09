@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import StarRating from "../reusable/StarRating";
+import { HeartShareLinks } from "../individual/IndividualMainGallery";
 
 const SingleLink = props => (
   <Link to={`/listing/${props.to}/${props.id}`} className={props.classes} onClick={scrollTop}>
+    {
+      props.shouldDisplay ?
+        <div className="position-absolute position-right-top">
+          <HeartShareLinks />
+        </div>: null
+    }
     <img className="img-fluid w-100 rounded" src={props.photos[0]} alt={props.city}/>
     <div>
       <p className="m-0 py-1 text-uppercase upper-small text-brown">{props.simpleDescription} &middot; {props.city}</p>
@@ -13,6 +20,10 @@ const SingleLink = props => (
     </div>
   </Link>
 );
+
+SingleLink.defaultProps = {
+  shouldDisplay: false
+};
 
 export const scrollTop = (x=0, y=0) => window.scroll(x, y);
 

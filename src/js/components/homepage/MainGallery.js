@@ -1,6 +1,5 @@
 import React from 'react';
 import MessageWithSearch from "./MessageWithSearch";
-import { Observable } from "rxjs/Observable";
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/map';
 import { timer } from 'rxjs/observable/timer';

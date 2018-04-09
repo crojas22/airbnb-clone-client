@@ -64,6 +64,9 @@ const IndividualListing = props => {
               <GoogleMapApi
                 height="400px"
                 location={`${props.listing.city}, ${props.listing.state} ${props.listing.country}`}/>
+              <div className="my-2 text-muted font-weight-light">
+                Exact location information is provided after a booking is confirmed.
+              </div>
             </div>
           </div>
           <FixedSide class1="d-none d-lg-block col position-fixed position-rt-0"
