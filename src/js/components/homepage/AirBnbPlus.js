@@ -1,5 +1,6 @@
 import React from 'react';
 import { BtnLink } from "../reusable/Buttons";
+import { scrollTop } from "./SingleLink";
 
 const AirBnbPlus = () => (
   <div className="container-fluid px-md-5 pb-3">
@@ -16,10 +17,10 @@ const AirBnbPlus = () => (
           <h4>A new selection of homes </h4>
           <h4>verified for quality & comfort.</h4>
         </div>
-        <BtnLink to="/" title="Explore Airbnb Plus homes"
+        <BtnLink to="search/homes" title="Explore Airbnb Plus homes" onClick={scrollTop}
                  classes="border-shadow mt-3 text-dark border bg-white rounded py-2 py-md-3 px-4"/>
       </div>
-      <div className="position-absolute border rounded d-block bg-leftWhite h-300 w-100">
+      <div className="position-absolute rounded d-block bg-leftWhite h-300 w-100">
         <div id="plus-img" className="position-absolute z-negative100">
         </div>
       </div>

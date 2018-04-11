@@ -42,7 +42,7 @@
 }
 
 #plus-img {
-  background: url("/images/misc/plus.jpeg") no-repeat center bottom;
+  background: url("/images/misc/plus.jpeg") no-repeat center 25%;
   background-size: cover;
   height: 300px;
   width: 100%;
@@ -60,5 +60,11 @@
   svg {
     margin: 0 0 0.25rem;
     color: #008488;
+  }
+}
+
+.footer {
+  ul li {
+    margin-bottom: 0.25rem;
   }
 }

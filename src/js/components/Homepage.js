@@ -10,6 +10,7 @@ import { FETCH_DATA } from "../type";
 import GroupOfLinks from "./homepage/GroupOfLinks";
 import { BtnLink } from "./reusable/Buttons";
 import { scrollTop } from "./homepage/SingleLink";
+import Footer from "./reusable/Footer";
 
 class Homepage extends Component {
   
@@ -27,19 +28,20 @@ class Homepage extends Component {
             <ExploreLinks />
           </div>
         </div>
-          <div className="mx-xl-5">
-            <AirBnbPlus />
-            <GroupOfLinks title="Homes around the world" to="home"
-                          linkTo={
-                            <BtnLink to="search/homes" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
-                          }
-                          homeListing={this.props.homeListing}/>
-            <GroupOfLinks title="Experiences in the spotlight" to="experience"
-                          linkTo={
-                            <BtnLink to="search/homes" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
-                          }
-                          homeListing={this.props.experienceListing}/>
-          </div>
+        <div className="mx-xl-5">
+          <AirBnbPlus />
+          <GroupOfLinks title="Homes around the world" to="home"
+                        linkTo={
+                          <BtnLink to="search/homes" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
+                        }
+                        homeListing={this.props.homeListing}/>
+          <GroupOfLinks title="Experiences in the spotlight" to="experience"
+                        linkTo={
+                          <BtnLink to="search/homes" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
+                        }
+                        homeListing={this.props.experienceListing}/>
+        </div>
+        <Footer />
       </div>
     )
   }
