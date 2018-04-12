@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Loading } from "./Loading";
 
 class GoogleMapApi extends React.Component {
+  state = {
+    loading: true
+  };
+  
   componentDidMount() {
     this.initMap(document.getElementById("map"));
   }
