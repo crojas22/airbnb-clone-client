@@ -3,7 +3,7 @@ import { BtnLink } from "../reusable/Buttons";
 import { scrollTop } from "./SingleLink";
 
 const AirBnbPlus = () => (
-  <div className="container-fluid px-md-5 pb-3">
+  <div className="container-fluid px-0 pb-3">
     <h4 className="my-2">
       Introducing Airbnb Plus
     </h4>

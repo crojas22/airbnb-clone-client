@@ -8,7 +8,7 @@ const GroupOfLinks = props => {
     "d-none d-md-block col-md-4 col-xl-3 mb-3", "d-none d-xl-block col-xl-3 mb-3"];
   
   return(
-    <div className="container-fluid px-md-5 pt-4">
+    <div className="container-fluid px-0 pt-4">
       <h4 className="my-2">
         {
           props.title

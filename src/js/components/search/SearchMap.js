@@ -6,9 +6,10 @@ const SearchMap = props => {
   return(
     <div className="d-none d-lg-block">
       <GoogleMapApi
+        sendData={props.sendData}
         data={props.data}
         zoom={4}
-        height="82vh"
+        height="83vh"
         multiple={true}
         location={"USA"}/>
     </div>

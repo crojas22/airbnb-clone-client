@@ -11,24 +11,32 @@ import GroupOfLinks from "./homepage/GroupOfLinks";
 import { BtnLink } from "./reusable/Buttons";
 import { scrollTop } from "./homepage/SingleLink";
 import Footer from "./reusable/Footer";
+import { Loading } from "./reusable/Loading";
 
 class Homepage extends Component {
+  state = {
+    loading: true
+  };
   
-  componentDidMount() {
-    this.props.fetchData(FETCH_DATA, "v1/homepage")
+  async componentDidMount() {
+    await this.props.fetchData(FETCH_DATA, "v1/homepage");
+    this.setState({loading: false});
   }
   
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
     return(
       <div>
         <Navigation />
         <MainGallery />
         <div className="bg-white">
-          <div className="mx-xl-5">
+          <div className="container">
             <ExploreLinks />
           </div>
         </div>
-        <div className="mx-xl-5">
+        <div className="container">
           <AirBnbPlus />
           <GroupOfLinks title="Homes around the world" to="home"
                         linkTo={

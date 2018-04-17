@@ -7,8 +7,8 @@ import FaAngleDown from 'react-icons/lib/fa/angle-down';
 const Footer = () => {
   return(
     <div className="border-top mt-3 footer">
-      <div className="mx-xl-5">
-        <div className="container-fluid px-lg-5 py-4">
+      <div className="container">
+        <div className="container-fluid px-0 py-4">
           <div className="d-none d-md-flex border-bottom row pb-4">
             <div className="col-md-3">
               <div className="mb-3">

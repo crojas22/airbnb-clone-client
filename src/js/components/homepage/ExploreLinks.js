@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { scrollTop } from "./SingleLink";
 
 const ExploreLinks = () => (
-  <div className="container-fluid bg-white py-4 p-md-5">
+  <div className="container-fluid bg-white py-4 px-0">
     <h4 className="my-2">
       Explore Airbnb
     </h4>

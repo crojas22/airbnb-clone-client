@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable';
 import {
-  FETCH_DATA, FETCH_INDIVIDUAL_EXPERIENCE_DATA, FETCH_INDIVIDUAL_HOME_DATA, FETCH_SEARCH_DATA, SET_DATA,
+  FETCH_DATA, FETCH_INDIVIDUAL_EXPERIENCE_DATA, FETCH_INDIVIDUAL_HOME_DATA, FETCH_SEARCH_DATA, SEND_DATA, SET_DATA,
   SET_INDIVIDUAL_EXPERIENCE_DATA,
   SET_INDIVIDUAL_HOME_DATA, SET_SEARCH_DATA
 } from "../type";
@@ -38,9 +38,16 @@ const fetchIndividualExperienceData = action$ => (
     .map(resp => setData(SET_INDIVIDUAL_EXPERIENCE_DATA, resp.listing))
 );
 
+const sendData = actions$ => (
+  actions$.ofType(SEND_DATA)
+    .mergeMap(action => ajax.post(url(action.url), action.payload, { 'Content-Type': 'application/json' }))
+    .do(resp => console.log(resp))
+);
+
 export default combineEpics(
   fetchData,
   fetchIndividualHomeData,
   fetchIndividualExperienceData,
-  fetchSearchData
+  fetchSearchData,
+  sendData
 );

@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Loading } from "./Loading";
 
 class GoogleMapApi extends React.Component {
-  state = {
-    loading: true
-  };
-  
   componentDidMount() {
     this.initMap(document.getElementById("map"));
   }
@@ -43,15 +38,38 @@ class GoogleMapApi extends React.Component {
   };
   
   setMarkers = (array=[], geoCoder, map) => {
-    for (let i = 0; i < array.length; i++) {
-      geoCoder.geocode({'address': `${array[i].city}, ${array[i].state} ${array[i].country}`}, function(result, status) {
-        if (status === "OK") {
-          new window.google.maps.Marker({
-            position: result[0].geometry.location,
-            map: map,
-          })
-        }
-      })
+    let i = 0,
+      length = array.length;
+    for (i; i < length; i++) {
+      if (!array[i].location) {
+        let id = array[i].id;
+        geoCoder.geocode({'address': `${array[i].city}, ${array[i].state} ${array[i].country}`}, async function(result, status) {
+          if (status === "OK") {
+            await fetch(`http://localhost:8080/api/v1/home/location/${id}`, {
+              method: "POST",
+              body: JSON.stringify({
+                latitude: result[0].geometry.location.lat(),
+                longitude: result[0].geometry.location.lng()
+              }),
+              headers: new Headers({'Content-Type': 'application/json'})
+            });
+            new window.google.maps.Marker({
+              position: result[0].geometry.location,
+              map: map,
+            })
+          } else {
+            i--;
+          }
+        })
+      } else if (array[i].location) {
+        new window.google.maps.Marker({
+          position: {
+            lat: array[i].location.latitude,
+            lng: array[i].location.longitude
+          },
+          map: map
+        })
+      }
     }
   };
   

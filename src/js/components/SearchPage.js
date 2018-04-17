@@ -6,7 +6,7 @@ import Navigation from "./reusable/Navigation";
 import SearchFilter, { HomeFilterOptions } from "./search/SearchFilter";
 import SearchResults from "./search/SearchResults";
 import SearchMap from "./search/SearchMap";
-import { fetchData } from "../action";
+import { fetchData, sendData } from "../action";
 import { FETCH_SEARCH_DATA } from "../type";
 import { Loading } from "./reusable/Loading";
 
@@ -33,7 +33,7 @@ class SearchPage extends Component {
                       }/>
         <SearchResults data={this.props.data}/>
         <div className="position-fixed w-35 right-0 top-145">
-          <SearchMap data={this.props.data}/>
+          <SearchMap data={this.props.data} sendData={this.props.sendData}/>
         </div>
       </div>
     )
@@ -46,7 +46,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    fetchData
+    fetchData,
+    sendData
   }, dispatch)
 );
 

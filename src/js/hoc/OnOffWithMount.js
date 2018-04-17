@@ -11,8 +11,7 @@ const OnOffWithMount = InnerComponent => parameter => {
   class Wrapper extends Component {
     state = {
       activeDrop: false,
-      activeModal: false,
-      loaded: false
+      activeModal: false
     };
     
     componentDidMount() {

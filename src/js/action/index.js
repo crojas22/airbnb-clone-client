@@ -11,3 +11,9 @@ export const setData = (type, payload) => ({
   type,
   payload
 });
+
+export const sendData = (type, url, payload) => ({
+  type,
+  url,
+  payload
+});
