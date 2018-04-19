@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import Navigation from "./reusable/Navigation";
-import SearchFilter, { HomeFilterOptions } from "./search/SearchFilter";
-import SearchResults from "./search/SearchResults";
+import SearchFilter, { ExperienceFilterOptions, HomeFilterOptions } from "./search/SearchFilter";
+import SearchResults, { ExperienceResultsHeader, HomeResultsHeader } from "./search/SearchResults";
 import SearchMap from "./search/SearchMap";
-import { fetchData, sendData } from "../action";
+import { fetchData } from "../action";
 import { FETCH_SEARCH_DATA } from "../type";
 import { Loading } from "./reusable/Loading";
 
@@ -27,14 +27,32 @@ class SearchPage extends Component {
     return(
       <div className="position-relative">
         <Navigation classes="fixed w-100 bg-white z-100"/>
-        <SearchFilter classes="fixed w-100 bg-white z-50"
-                      options={
-                        this.props.location.pathname === "/search/homes" ? <HomeFilterOptions /> : null
-                      }/>
-        <SearchResults data={this.props.data}/>
-        <div className="position-fixed w-35 right-0 top-145">
-          <SearchMap data={this.props.data} sendData={this.props.sendData}/>
-        </div>
+        {
+          this.props.location.pathname === "/search/homes" ?
+            <React.Fragment>
+              <SearchFilter classes="fixed w-100 bg-white z-50"
+                            options={<HomeFilterOptions />}/>
+              <SearchResults data={this.props.data}
+                             to="home"
+                             header={<HomeResultsHeader />}/>
+              <div className="position-fixed w-35 right-0 top-145">
+                <SearchMap data={this.props.data}
+                           to="home"/>
+              </div>
+            </React.Fragment> :
+            this.props.location.pathname === "/search/experiences" ?
+              <React.Fragment>
+                <SearchFilter classes="fixed w-100 bg-white z-50"
+                              options={<ExperienceFilterOptions />}/>
+                <SearchResults data={this.props.data}
+                               to="experience"
+                               header={<ExperienceResultsHeader />}/>
+                <div className="position-fixed w-35 right-0 top-145">
+                  <SearchMap data={this.props.data}
+                             to="experience"/>
+                </div>
+                </React.Fragment> : null
+        }
       </div>
     )
   }
@@ -46,8 +64,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    fetchData,
-    sendData
+    fetchData
   }, dispatch)
 );
 

@@ -16,14 +16,14 @@ const ExploreLinks = () => (
           Homes
         </p>
       </Link>
-      <div className="d-lg-flex w-lg-100 align-items-lg-center border-shadow rounded mr-3">
+      <Link to="/search/experiences" onClick={scrollTop} className="d-lg-flex w-lg-100 align-items-lg-center border-shadow rounded mr-3">
         <div>
           <img className="size-190-85 img-fluid w-100" src="/images/misc/experience-bicycle.jpeg" alt="bicicle"/>
         </div>
         <p className="p-3 m-0">
           Experiences
         </p>
-      </div>
+      </Link>
       <div className="d-lg-flex w-lg-100 align-items-lg-center border-shadow rounded">
         <div>
           <img className="size-190-85 img-fluid w-100" src="/images/misc/experience-restaurant.jpeg" alt="restaurant"/>

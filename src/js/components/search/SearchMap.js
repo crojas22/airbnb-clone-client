@@ -6,7 +6,7 @@ const SearchMap = props => {
   return(
     <div className="d-none d-lg-block">
       <GoogleMapApi
-        sendData={props.sendData}
+        to={props.to}
         data={props.data}
         zoom={4}
         height="83vh"

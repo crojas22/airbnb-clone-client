@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { url } from "../../epics";
 
 class GoogleMapApi extends React.Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class GoogleMapApi extends React.Component {
       if (status === "OK") {
         map.setCenter(result[0].geometry.location);
         if (this.props.multiple) {
-          this.setMarkers(this.props.data, geoCoder, map)
+          this.setMarkers(this.props.data, geoCoder, map, this.props.to)
         } else {
           const circle = new window.google.maps.Circle({
             center: result[0].geometry.location,
@@ -37,15 +38,16 @@ class GoogleMapApi extends React.Component {
     });
   };
   
-  setMarkers = (array=[], geoCoder, map) => {
+  setMarkers = (array=[], geoCoder, map, to) => {
     let i = 0,
       length = array.length;
     for (i; i < length; i++) {
+      let id = array[i].id,
+        price = array[i].price;
       if (!array[i].location) {
-        let id = array[i].id;
         geoCoder.geocode({'address': `${array[i].city}, ${array[i].state} ${array[i].country}`}, async function(result, status) {
           if (status === "OK") {
-            await fetch(`http://localhost:8080/api/v1/home/location/${id}`, {
+            await fetch(url(`v1/${to}/location/${id}`), {
               method: "POST",
               body: JSON.stringify({
                 latitude: result[0].geometry.location.lat(),
@@ -55,6 +57,10 @@ class GoogleMapApi extends React.Component {
             });
             new window.google.maps.Marker({
               position: result[0].geometry.location,
+              label: {
+                text: `$${price}`,
+                color: "white"
+              },
               map: map,
             })
           } else {
@@ -66,6 +72,10 @@ class GoogleMapApi extends React.Component {
           position: {
             lat: array[i].location.latitude,
             lng: array[i].location.longitude
+          },
+          label: {
+            text: `$${price}`,
+            color: "white"
           },
           map: map
         })
