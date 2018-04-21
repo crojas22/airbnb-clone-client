@@ -5,10 +5,10 @@ import { bindActionCreators } from 'redux';
 import Navigation from "./reusable/Navigation";
 import SearchFilter, { ExperienceFilterOptions, HomeFilterOptions } from "./search/SearchFilter";
 import SearchResults, { ExperienceResultsHeader, HomeResultsHeader } from "./search/SearchResults";
-import SearchMap from "./search/SearchMap";
-import { fetchData } from "../action";
-import { FETCH_SEARCH_DATA } from "../type";
+import { fetchData, sendAction, setData } from "../action";
+import { FETCH_SEARCH_DATA, RESET_SEARCH_DATA, SEARCH_PAGE_LOADING_FALSE } from "../type";
 import { Loading } from "./reusable/Loading";
+import GoogleMapApi from "./reusable/GoogleMapApi";
 
 class SearchPage extends Component {
   state = {
@@ -17,11 +17,15 @@ class SearchPage extends Component {
   
   async componentDidMount() {
     await this.props.fetchData(FETCH_SEARCH_DATA, `v1${this.props.location.pathname}`);
-    this.setState({loading: false});
+    this.props.setData(SEARCH_PAGE_LOADING_FALSE, false);
+  }
+  
+  componentWillUnmount() {
+    this.props.sendAction(RESET_SEARCH_DATA);
   }
   
   render() {
-    if (this.state.loading) {
+    if (this.props.isLoading) {
       return <Loading />
     }
     return(
@@ -36,8 +40,16 @@ class SearchPage extends Component {
                              to="home"
                              header={<HomeResultsHeader />}/>
               <div className="position-fixed w-35 right-0 top-145">
-                <SearchMap data={this.props.data}
-                           to="home"/>
+                <div className="d-none d-lg-block">
+                  <GoogleMapApi
+                    listings={this.props.data}
+                    zoom={4}
+                    height="83vh"
+                    multiple={true}
+                    latitude={37.090240}
+                    longitude={-95.712891}
+                  />
+                </div>
               </div>
             </React.Fragment> :
             this.props.location.pathname === "/search/experiences" ?
@@ -48,8 +60,16 @@ class SearchPage extends Component {
                                to="experience"
                                header={<ExperienceResultsHeader />}/>
                 <div className="position-fixed w-35 right-0 top-145">
-                  <SearchMap data={this.props.data}
-                             to="experience"/>
+                  <div className="d-none d-lg-block">
+                    <GoogleMapApi
+                      listings={this.props.data}
+                      zoom={4}
+                      height="83vh"
+                      multiple={true}
+                      latitude={37.090240}
+                      longitude={-95.712891}
+                    />
+                  </div>
                 </div>
                 </React.Fragment> : null
         }
@@ -59,12 +79,15 @@ class SearchPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  data: state.searchData
+  data: state.searchData.listings,
+  isLoading: state.searchData.isLoading
 });
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    fetchData
+    fetchData,
+    sendAction,
+    setData
   }, dispatch)
 );
 

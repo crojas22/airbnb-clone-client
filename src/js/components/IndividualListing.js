@@ -63,7 +63,9 @@ const IndividualListing = props => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis leo id erat volutpat sollicitudin."/>
               <GoogleMapApi
                 height="400px"
-                location={`${props.listing.city}, ${props.listing.state} ${props.listing.country}`}/>
+                latitude={props.listing.location.latitude}
+                longitude={props.listing.location.longitude}
+              />
               <div className="my-2 text-muted font-weight-light">
                 Exact location information is provided after a booking is confirmed.
               </div>

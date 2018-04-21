@@ -1,5 +1,6 @@
 import {
-  RESET_INDIVIDUAL_DATA, RESET_SEARCH_DATA, SET_DATA, SET_INDIVIDUAL_EXPERIENCE_DATA, SET_INDIVIDUAL_HOME_DATA,
+  RESET_INDIVIDUAL_DATA, RESET_SEARCH_DATA, SEARCH_PAGE_LOADING_FALSE, SET_DATA, SET_INDIVIDUAL_EXPERIENCE_DATA,
+  SET_INDIVIDUAL_HOME_DATA,
   SET_SEARCH_DATA
 } from "../type";
 
@@ -23,10 +24,18 @@ export const listings = (state={experienceListing:{content:[]}, homeListing:{con
   }
 };
 
-export const searchData = (state=[], action) => {
+export const searchData = (state={isLoading: true, listings: []}, action) => {
   switch (action.type) {
     case SET_SEARCH_DATA:
-      return action.payload;
+      return {
+        ...state,
+        listings: action.payload
+      };
+    case SEARCH_PAGE_LOADING_FALSE:
+      return {
+        ...state,
+        isLoading: action.payload
+      };
     case RESET_SEARCH_DATA:
       return [];
     default:
