@@ -6,7 +6,8 @@ import FaComments from 'react-icons/lib/fa/comments';
 import MdFavoriteOutline from 'react-icons/lib/md/favorite-outline';
 import MdEmail from 'react-icons/lib/md/email';
 import FaFacebook from 'react-icons/lib/fa/facebook';
-import FaTwitter from 'react-icons/lib/fa/twitter'
+import FaTwitter from 'react-icons/lib/fa/twitter';
+import FaEllipsisH from 'react-icons/lib/fa/ellipsis-h';
 import { Header } from "./individual/IndividualReusable";
 import { FixedPriceButton } from "./individual/Fixed";
 import FixedSide from "./individual/FixedSide";
@@ -21,6 +22,7 @@ import FullPageModal from "./reusable/FullPageModal";
 import OnOffWithMount from "../hoc/OnOffWithMount";
 import GoogleMapApi from "./reusable/GoogleMapApi";
 import { HeartShareLinks } from "./individual/IndividualMainGallery";
+import { SimpleFooter } from "./reusable/Footer";
 
 const IndividualListingExperience = props => {
   return(
@@ -40,7 +42,7 @@ const IndividualListingExperience = props => {
                  }/>
         <div className="container mt-3 mb-5">
           <div className="row">
-            <div className="point-reference col-md-7 col-lg-7 col-xl-8 ">
+            <div className="point-reference col-md-7 col-lg-7 col-xl-8">
               <Header info={props.listing.simpleDescription}
                       title={props.listing.title}
                       location={props.listing.city}/>
@@ -132,6 +134,9 @@ const IndividualListingExperience = props => {
                                 clickOnOff={props.clickOnOff}/>
                        }/>
       </div>
+      <div className="container">
+        <SimpleFooter/>
+      </div>
     </div>
   )
 };
@@ -185,23 +190,31 @@ export const TitleParagraph = props => (
   </div>
 );
 
-const SaveOrShareBottom = () => (
-  <div className="d-flex justify-content-between py-4">
-    <div>
-      <a>
-        <FaFacebook size={20}/>
+export const SaveOrShareBottom = ({size, shouldDisplay}) => (
+  <div className={"d-flex py-4 smaller-font "+(shouldDisplay?"justify-content-between":"")}>
+    <div className={(shouldDisplay?"":"d-flex justify-content-between w-100 px-4")}>
+      <a className="d-block-inline">
+        <FaFacebook size={size}/>
       </a>
       <a className="mx-2">
-        <FaTwitter size={20}/>
+        <FaTwitter size={size}/>
       </a>
       <a href="mailto:someone@example.com">
-        <MdEmail size={20}/>
+        <MdEmail size={size}/>
+      </a>
+      <a className="ml-2">
+        <FaEllipsisH size={size}/>
       </a>
     </div>
-    <div>
-      Save to list <MdFavoriteOutline size={20}/>
+    <div className={shouldDisplay?"":"d-none"}>
+      Save to list <MdFavoriteOutline size={size}/>
     </div>
   </div>
 );
+
+SaveOrShareBottom.defaultProps = {
+  size: 18,
+  shouldDisplay: true
+};
 
 export default OnOffWithMount(IndividualListingExperience)(["v1/experience", "individualExperienceListing", FETCH_INDIVIDUAL_EXPERIENCE_DATA]);

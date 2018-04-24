@@ -73,6 +73,6 @@ const Reviews = () => (
                 He is a really great host. I'll coming back very soon."/>
     </div>
   </div>
-)
+);
 
 export default Reviews;

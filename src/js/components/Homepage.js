@@ -12,6 +12,7 @@ import { BtnLink } from "./reusable/Buttons";
 import { scrollTop } from "./homepage/SingleLink";
 import Footer from "./reusable/Footer";
 import { Loading } from "./reusable/Loading";
+import Restaurant from "./Restaurant";
 
 class Homepage extends Component {
   state = {

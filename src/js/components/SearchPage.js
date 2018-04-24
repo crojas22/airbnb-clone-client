@@ -44,7 +44,7 @@ class SearchPage extends Component {
                   <GoogleMapApi
                     listings={this.props.data}
                     zoom={4}
-                    height="83vh"
+                    height="85vh"
                     multiple={true}
                     latitude={37.090240}
                     longitude={-95.712891}

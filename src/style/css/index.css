@@ -36,8 +36,12 @@
   padding-top: 0.70rem;
   padding-bottom: 0.70rem; }
 
+.py-30 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem; }
+
 .smaller-font {
-  font-size: 1rem; }
+  font-size: 0.87rem; }
 
 .smallest-font {
   font-size: 0.75rem; }
@@ -78,6 +82,9 @@
 
 .font-2 {
   font-size: 1.3rem; }
+
+.font-1 {
+  font-size: 1.1rem; }
 
 .text-brown {
   color: #734f22; }
@@ -237,6 +244,28 @@
 
 .right-0 {
   right: 0; }
+
+.restaurant-img1 {
+  background: url("/images/restaurants/restaurant1-1.jpeg") center no-repeat;
+  background-size: cover; }
+
+.restaurant-img2 {
+  background: url("/images/restaurants/restaurant1-2.jpeg") center no-repeat;
+  background-size: cover; }
+
+.restaurant-img3 {
+  background: url("/images/restaurants/restaurant1-1.jpeg") center no-repeat;
+  background-size: cover; }
+
+.bg-green {
+  background-color: #008488; }
+
+.border-top-green {
+  border-top: 3px solid #008488; }
+
+.shadow {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 3px; }
 
 body, html {
   margin: 0;

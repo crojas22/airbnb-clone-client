@@ -17,13 +17,14 @@ import FullPageModal from "./reusable/FullPageModal";
 import OnOffWithMount from "../hoc/OnOffWithMount";
 import GoogleMapApi from "./reusable/GoogleMapApi";
 import { TitleParagraph } from "./IndividualListingExperience";
+import { SimpleFooter } from "./reusable/Footer";
 
 const IndividualListing = props => {
   return(
     <div>
       <Navigation/>
       <IndividualMainGallery photos={props.listing.photos}/>
-      <div className="container mt-3 mb-5">
+      <div className="container mt-4 mb-5">
         <div className="row justify-content-between position-relative">
           <div className="point-reference col-lg-7 z-50">
             <Header info={props.listing.simpleDescription}
@@ -98,6 +99,9 @@ const IndividualListing = props => {
                               price={props.listing.price}
                               per={props.listing.typeOfCharge}/>
                      }/>
+      <div className="container">
+        <SimpleFooter/>
+      </div>
     </div>
   )
 };

@@ -98,23 +98,27 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="d-flex py-md-4 justify-content-between">
-            <div className="text-muted">
-              &copy;  Airbnb, Inc.
-            </div>
-            <div className="d-flex">
-              <div className="mr-3">
-                English <FaAngleDown />
-              </div>
-              <div>
-                USD <FaAngleDown />
-              </div>
-            </div>
-          </div>
+          <SimpleFooter />
         </div>
       </div>
     </div>
   )
 };
+
+export const SimpleFooter = () => (
+  <div className="d-flex py-md-4 justify-content-between">
+    <div className="text-muted">
+      &copy;  Airbnb, Inc.
+    </div>
+    <div className="d-flex">
+      <div className="mr-3">
+        English <FaAngleDown />
+      </div>
+      <div>
+        USD <FaAngleDown />
+      </div>
+    </div>
+  </div>
+);
 
 export default Footer;

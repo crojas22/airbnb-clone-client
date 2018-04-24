@@ -27,6 +27,12 @@ const SearchPage = Loadable({
   modules: ['./SearchPage']
 });
 
+const Restaurant = Loadable({
+  loader: () => import(/* webpackChunckName: "./Restaurant"*/ './Restaurant'),
+  loading: Loading,
+  modules: ['./Restaurant']
+});
+
 const App = () => {
   return(
     <Switch>
@@ -35,6 +41,7 @@ const App = () => {
       <Route path='/search/:type' component={SearchPage}/>
       <Route path='/listing/home/:id' component={IndividualListing}/>
       <Route path='/listing/experience/:id' component={IndividualListingExperience}/>
+      <Route path='/listing/restaurant/:id' component={Restaurant}/>
     </Switch>
   )
 };

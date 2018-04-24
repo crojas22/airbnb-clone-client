@@ -1,5 +1,6 @@
 import React from 'react';
 import MdAccountCircle from 'react-icons/lib/md/account-circle';
+import StarRating from "../reusable/StarRating";
 
 export const Header = props => (
   <div className="d-flex align-items-center">
@@ -17,5 +18,17 @@ export const Header = props => (
     <div>
       <MdAccountCircle size={60}/>
     </div>
+  </div>
+);
+
+export const RestaurantHeader = ({size}) => (
+  <div>
+    <p className="m-0 pt-1 text-uppercase upper-small text-brown">
+      CLASSIC ITALIAN
+    </p>
+    <h1 className="m-0">
+      Perricone's Marketplace & Cafe
+    </h1>
+    <StarRating size={size}/>
   </div>
 );

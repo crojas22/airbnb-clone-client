@@ -39,13 +39,16 @@ const Navigation = props => (
           </div>
         </div>
         <div className="d-none d-lg-flex">
-          <div className="mx-3 px-1 py-4 text-nowrap border-b hover-border">
+          <div className="mx-3 px-1 py-4 text-nowrap border-b hover-border font-regular">
             Become a host
           </div>
-          <div className="mx-3 px-1 py-4 text-nowrap border-b hover-border">
+          <div className="mx-3 px-1 py-4 text-nowrap border-b hover-border font-regular">
+            Help
+          </div>
+          <div className="mx-3 px-1 py-4 text-nowrap border-b hover-border font-regular">
             Sign Up
           </div>
-          <div className="mx-3 px-1 py-4 text-nowrap border-b hover-border">
+          <div className="mx-3 px-1 py-4 text-nowrap border-b hover-border font-regular">
             Log In
           </div>
         </div>

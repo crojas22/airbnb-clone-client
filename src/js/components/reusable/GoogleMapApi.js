@@ -16,7 +16,8 @@ class GoogleMapApi extends React.Component {
     if (!window.google) return;
     const map = new window.google.maps.Map(node, {
       center: {lat: this.props.latitude, lng: this.props.longitude},
-      zoom: this.props.zoom
+      zoom: this.props.zoom,
+      disableDefaultUI: this.props.disableUI
     });
     if (this.props.multiple) {
       listings.forEach(listing => {
@@ -31,6 +32,14 @@ class GoogleMapApi extends React.Component {
           },
           map: map
         })
+      })
+    } else if (this.props.restaurant) {
+      new window.google.maps.Marker({
+        position: {
+          lat: this.props.latitude,
+          lng: this.props.longitude
+        },
+        map: map
       })
     } else {
       const circle = new window.google.maps.Circle({
@@ -62,7 +71,9 @@ class GoogleMapApi extends React.Component {
 GoogleMapApi.defaultProps = {
   height: "400px",
   multiple: false,
-  zoom: 13
+  zoom: 13,
+  restaurant: false,
+  disableUI: false
 };
 
 GoogleMapApi.propTypes = {

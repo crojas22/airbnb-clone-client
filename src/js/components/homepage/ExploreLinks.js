@@ -24,14 +24,14 @@ const ExploreLinks = () => (
           Experiences
         </p>
       </Link>
-      <div className="d-lg-flex w-lg-100 align-items-lg-center border-shadow rounded">
+      <Link to="/listing/restaurant/1" onClick={scrollTop} className="d-lg-flex w-lg-100 align-items-lg-center border-shadow rounded">
         <div>
           <img className="size-190-85 img-fluid w-100" src="/images/misc/experience-restaurant.jpeg" alt="restaurant"/>
         </div>
         <p className="p-3 m-0">
           Restaurants
         </p>
-      </div>
+      </Link>
     </div>
   </div>
 )
