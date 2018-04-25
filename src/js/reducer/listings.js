@@ -1,10 +1,10 @@
 import {
   RESET_INDIVIDUAL_DATA, RESET_SEARCH_DATA, SEARCH_PAGE_LOADING_FALSE, SET_DATA, SET_INDIVIDUAL_EXPERIENCE_DATA,
-  SET_INDIVIDUAL_HOME_DATA,
+  SET_INDIVIDUAL_HOME_DATA, SET_RESTAURANT_DATA,
   SET_SEARCH_DATA
 } from "../type";
 
-export const listings = (state={experienceListing:{content:[]}, homeListing:{content:[]}}, action) => {
+export const listings = (state={experienceListing:{content:[]}, homeListing:{content:[]}, restaurants: []}, action) => {
   switch (action.type) {
     case SET_DATA:
       return {
@@ -16,7 +16,9 @@ export const listings = (state={experienceListing:{content:[]}, homeListing:{con
         homeListing: {
           // content: action.payload.homeListing
           content: action.payload.homeListing.content
-  
+        },
+        restaurants: {
+          content: action.payload.restaurants.content
         }
       };
     default:
@@ -57,6 +59,17 @@ export const individualHomeListing = (state={}, action) => {
 export const individualExperienceListing = (state={}, action) => {
   switch (action.type) {
     case SET_INDIVIDUAL_EXPERIENCE_DATA:
+      return action.payload;
+    case RESET_INDIVIDUAL_DATA:
+      return {};
+    default:
+      return state;
+  }
+};
+
+export const individualRestaurant = (state={}, action) => {
+  switch (action.type) {
+    case SET_RESTAURANT_DATA:
       return action.payload;
     case RESET_INDIVIDUAL_DATA:
       return {};

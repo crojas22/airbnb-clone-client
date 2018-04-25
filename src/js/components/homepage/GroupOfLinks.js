@@ -1,5 +1,4 @@
 import React from 'react';
-import SingleLink from "./SingleLink";
 import PropTypes from 'prop-types';
 import FunctionArray from "../../functions/FunctionArray";
 
@@ -16,12 +15,12 @@ const GroupOfLinks = props => {
       </h4>
       <div className="row py-2">
         {
-          FunctionArray.renderComponentWStartEnd(props.homeListing, props.to, classArray, SingleLink, 0, 4)
+          FunctionArray.renderComponentWStartEnd(props.homeListing, props.to, classArray, props.component, 0, 4)
         }
       </div>
       <div className="row py-2">
         {
-          FunctionArray.renderComponentWStartEnd(props.homeListing, props.to, classArray, SingleLink, 4 )
+          FunctionArray.renderComponentWStartEnd(props.homeListing, props.to, classArray, props.component, 4 )
         }
       </div>
       {

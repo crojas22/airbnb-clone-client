@@ -21,13 +21,17 @@ export const Header = props => (
   </div>
 );
 
-export const RestaurantHeader = ({size}) => (
+export const RestaurantHeader = ({size, simpleDescription, title}) => (
   <div>
     <p className="m-0 pt-1 text-uppercase upper-small text-brown">
-      CLASSIC ITALIAN
+      {
+        simpleDescription.toUpperCase()
+      }
     </p>
     <h1 className="m-0">
-      Perricone's Marketplace & Cafe
+      {
+        title
+      }
     </h1>
     <StarRating size={size}/>
   </div>

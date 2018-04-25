@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleMapApi from "../reusable/GoogleMapApi";
 import MdLocalRestaurant from 'react-icons/lib/md/local-restaurant';
 
-export default () => {
+export default ({title, address, city, phone, website}) => {
   return(
     <div className="shadow">
       <div>
@@ -18,11 +18,11 @@ export default () => {
       <div>
         <div className="p-4 border-bottom border-right border-left">
           <h5 className="font-weight-light mb-4">
-            Perricone's Marketplace & Cafe  <MdLocalRestaurant />
+            {title}  <MdLocalRestaurant />
           </h5>
           <div className="d-flex justify-content-between font-weight-light smaller-font">
             <div>
-              9 Barclay St, Manhattan
+              {address}, {city}
             </div>
             <div className="color-green">
               Directions
@@ -39,7 +39,7 @@ export default () => {
         </div>
         <div className="p-4 border-bottom border-right border-left d-flex justify-content-between font-weight-light smaller-font">
           <div>
-            +1 212-571-2930
+            {phone}
           </div>
           <div className="color-green">
             Call
@@ -47,7 +47,7 @@ export default () => {
         </div>
         <div className="p-4 border-bottom border-right border-left d-flex justify-content-between font-weight-light smaller-font">
           <div>
-            thewoolypublic.com
+            {website}
           </div>
           <div className="color-green">
             View

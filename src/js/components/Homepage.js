@@ -9,10 +9,11 @@ import { fetchData } from "../action";
 import { FETCH_DATA } from "../type";
 import GroupOfLinks from "./homepage/GroupOfLinks";
 import { BtnLink } from "./reusable/Buttons";
-import { scrollTop } from "./homepage/SingleLink";
+import { scrollTop, SingleRestaurantLink } from "./homepage/SingleLink";
 import Footer from "./reusable/Footer";
 import { Loading } from "./reusable/Loading";
 import Restaurant from "./Restaurant";
+import SingleLink from "./homepage/SingleLink";
 
 class Homepage extends Component {
   state = {
@@ -40,15 +41,23 @@ class Homepage extends Component {
         <div className="container">
           <AirBnbPlus />
           <GroupOfLinks title="Homes around the world" to="home"
+                        component={SingleLink}
                         linkTo={
                           <BtnLink to="search/homes" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
                         }
                         homeListing={this.props.homeListing}/>
           <GroupOfLinks title="Experiences in the spotlight" to="experience"
+                        component={SingleLink}
                         linkTo={
-                          <BtnLink to="search/homes" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
+                          <BtnLink to="search/experiences" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
                         }
                         homeListing={this.props.experienceListing}/>
+          <GroupOfLinks title="Restaurants in America" to="restaurant"
+                        component={SingleRestaurantLink}
+                        linkTo={
+                          <BtnLink to="search/experiences" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
+                        }
+                        homeListing={this.props.restaurants}/>
         </div>
         <Footer />
       </div>
@@ -58,7 +67,8 @@ class Homepage extends Component {
 
 const mapStateToProps = state => ({
   homeListing: state.listings.homeListing.content,
-  experienceListing: state.listings.experienceListing.content
+  experienceListing: state.listings.experienceListing.content,
+  restaurants: state.listings.restaurants.content
 });
 
 const mapDispatchToProps = dispatch => (

@@ -18,7 +18,7 @@ const Navigation = props => (
         </div>
         <div className="h-3rem px-3 d-none d-lg-flex no-wrap align-items-center">
           <Link to="/">
-            <img style={{height:50, width:70}} className="img-fluid mr-2" src="/images/logo/airbnb-logo.png" alt="airBnb-log"></img>
+            <img style={{maxHeight:48, maxWidth:70}} className="img-fluid" src="/images/logo/airbnb-logo.png" alt="airBnb-log"></img>
           </Link>
         </div>
         <div className="w-100 pr-3">
