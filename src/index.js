@@ -7,18 +7,14 @@ import epics from "./js/epics"
 import reducer from "./js/reducer";
 import './style/css/index.css';
 import App from './js/components/App';
-import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from "react-router-dom";
 import Loadable from 'react-loadable';
-
 
 const epicMiddleware = createEpicMiddleware(epics);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(reducer, composeEnhancers(applyMiddleware(epicMiddleware)));
-
-registerServiceWorker();
 
 Loadable.preloadReady().then(() => {
   ReactDOM.hydrate(
