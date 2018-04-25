@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb23a7f9-7326-429a-9225-cbb277d51630" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/Homepage.js" afterPath="$PROJECT_DIR$/src/js/components/Homepage.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/Restaurant.js" afterPath="$PROJECT_DIR$/src/js/components/Restaurant.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/homepage/GroupOfLinks.js" afterPath="$PROJECT_DIR$/src/js/components/homepage/GroupOfLinks.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/homepage/SingleLink.js" afterPath="$PROJECT_DIR$/src/js/components/homepage/SingleLink.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/individual/IndividualReusable.js" afterPath="$PROJECT_DIR$/src/js/components/individual/IndividualReusable.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/restaurant/RestaurantInfoCard.js" afterPath="$PROJECT_DIR$/src/js/components/restaurant/RestaurantInfoCard.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/restaurant/RestaurantMainPictures.js" afterPath="$PROJECT_DIR$/src/js/components/restaurant/RestaurantMainPictures.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/reusable/Navigation.js" afterPath="$PROJECT_DIR$/src/js/components/reusable/Navigation.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/epics/index.js" afterPath="$PROJECT_DIR$/src/js/epics/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/reducer/index.js" afterPath="$PROJECT_DIR$/src/js/reducer/index.js" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" afterPath="$PROJECT_DIR$/server/index.js" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/App.js" afterPath="$PROJECT_DIR$/src/js/components/App.js" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/SearchPage.js" afterPath="$PROJECT_DIR$/src/js/components/SearchPage.js" />
       <change beforePath="$PROJECT_DIR$/src/js/reducer/listings.js" afterPath="$PROJECT_DIR$/src/js/reducer/listings.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/type/index.js" afterPath="$PROJECT_DIR$/src/js/type/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/style/css/index.css" afterPath="$PROJECT_DIR$/src/style/css/index.css" />
-      <change beforePath="$PROJECT_DIR$/src/style/scss/_restaurant.scss" afterPath="$PROJECT_DIR$/src/style/scss/_restaurant.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/src/js/components/Restaurant.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
-              <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+              <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -57,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/src/js/components/restaurant/RestaurantMainPictures.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="268">
-              <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+              <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -73,43 +62,75 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndividualReusable.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/individual/IndividualReusable.js">
+      <file leaf-file-name="SearchPage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/components/SearchPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="5" column="39" lean-forward="true" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+            <state relative-caret-position="131">
+              <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/action/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="42" lean-forward="true" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndividualListing.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/IndividualListing.js">
+      <file leaf-file-name="listings.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/reducer/listings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            <state relative-caret-position="177">
+              <caret line="37" column="14" lean-forward="true" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RestaurantInfoCard.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/restaurant/RestaurantInfoCard.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="0">
+              <caret line="0" column="35" lean-forward="true" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/components/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1">
+              <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/epics/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="42" />
+            <state relative-caret-position="-76">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,8 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/style/scss/_animation.scss" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/js/components/search/Filter.js" />
         <option value="$PROJECT_DIR$/src/js/components/search/SearchPage.js" />
@@ -168,7 +187,6 @@
         <option value="$PROJECT_DIR$/src/js/components/search/SearchFilter.js" />
         <option value="$PROJECT_DIR$/src/js/components/search/SearchResults.js" />
         <option value="$PROJECT_DIR$/src/js/components/search/SearchMap.js" />
-        <option value="$PROJECT_DIR$/src/js/components/App.js" />
         <option value="$PROJECT_DIR$/src/style/scss/index.scss" />
         <option value="$PROJECT_DIR$/src/js/components/restaurant/ReservationMobile.js" />
         <option value="$PROJECT_DIR$/src/js/components/restaurant/RestaurantReservationSide.js" />
@@ -181,13 +199,11 @@
         <option value="$PROJECT_DIR$/src/js/components/IndividualListing.js" />
         <option value="$PROJECT_DIR$/src/js/components/IndividualListingExperience.js" />
         <option value="$PROJECT_DIR$/src/js/components/reusable/GoogleMapApi.js" />
-        <option value="$PROJECT_DIR$/src/js/components/SearchPage.js" />
         <option value="$PROJECT_DIR$/src/js/components/homepage/ExploreLinks.js" />
         <option value="$PROJECT_DIR$/src/js/components/homepage/GroupOfLinks.js" />
         <option value="$PROJECT_DIR$/src/js/components/homepage/SingleLink.js" />
         <option value="$PROJECT_DIR$/src/js/components/Homepage.js" />
         <option value="$PROJECT_DIR$/src/js/type/index.js" />
-        <option value="$PROJECT_DIR$/src/js/reducer/listings.js" />
         <option value="$PROJECT_DIR$/src/js/reducer/index.js" />
         <option value="$PROJECT_DIR$/src/style/scss/_restaurant.scss" />
         <option value="$PROJECT_DIR$/src/js/components/individual/IndividualReusable.js" />
@@ -196,6 +212,11 @@
         <option value="$PROJECT_DIR$/src/js/components/restaurant/RestaurantMainPictures.js" />
         <option value="$PROJECT_DIR$/src/js/components/reusable/Navigation.js" />
         <option value="$PROJECT_DIR$/src/js/epics/index.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/server/index.js" />
+        <option value="$PROJECT_DIR$/src/js/components/App.js" />
+        <option value="$PROJECT_DIR$/src/js/components/SearchPage.js" />
+        <option value="$PROJECT_DIR$/src/js/reducer/listings.js" />
       </list>
     </option>
   </component>
@@ -228,8 +249,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="176" />
-    <option name="y" value="205" />
+    <option name="x" value="201" />
+    <option name="y" value="109" />
     <option name="width" value="1127" />
     <option name="height" value="755" />
   </component>
@@ -301,58 +322,7 @@
               <item name="airbnb-frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="homepage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="airbnb-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="airbnb-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="airbnb-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="airbnb-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="reusable" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="airbnb-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="airbnb-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="epics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="airbnb-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="airbnb-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="reducer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="airbnb-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="airbnb-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="type" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="airbnb-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="airbnb-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="airbnb-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="airbnb-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -529,15 +499,15 @@
       <workItem from="1524324311789" duration="29415000" />
       <workItem from="1524437848272" duration="16000" />
       <workItem from="1524519681977" duration="7500000" />
-      <workItem from="1524583264537" duration="11666000" />
+      <workItem from="1524583264537" duration="12900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224172000" />
+    <option name="totallyTimeSpent" value="225406000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="176" y="205" width="1127" height="755" extended-state="0" />
+    <frame x="201" y="109" width="1127" height="755" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -548,7 +518,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25876662" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25757575" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20092165" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -607,20 +577,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/homepage/MainGallery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/reusable/Buttons.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -655,13 +611,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/search/SearchMap.js" />
-    <entry file="file://$PROJECT_DIR$/src/js/action/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/restaurants/restaurant1-2.jpeg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -784,14 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/SearchPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="77" column="3" lean-forward="false" selection-start-line="77" selection-start-column="3" selection-end-line="77" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/restaurants/restaurant1-1.jpeg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -860,14 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/IndividualListingExperience.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -890,14 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/reducer/listings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="69" column="33" lean-forward="false" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -939,7 +864,7 @@
     <entry file="file://$PROJECT_DIR$/src/js/components/individual/IndividualReusable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="5" column="39" lean-forward="true" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -947,7 +872,7 @@
     <entry file="file://$PROJECT_DIR$/src/js/components/restaurant/RestaurantInfoCard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -955,7 +880,7 @@
     <entry file="file://$PROJECT_DIR$/src/js/components/Restaurant.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
-          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -965,7 +890,7 @@
     <entry file="file://$PROJECT_DIR$/src/js/components/restaurant/RestaurantMainPictures.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
-          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -978,13 +903,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/epics/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="42" />
+        <state relative-caret-position="-76">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/action/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="42" lean-forward="true" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="true" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/SearchPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="48" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/reducer/listings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="37" column="14" lean-forward="true" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

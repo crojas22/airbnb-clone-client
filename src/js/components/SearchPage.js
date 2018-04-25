@@ -11,9 +11,6 @@ import { Loading } from "./reusable/Loading";
 import GoogleMapApi from "./reusable/GoogleMapApi";
 
 class SearchPage extends Component {
-  state = {
-    loading: true
-  };
   
   async componentDidMount() {
     await this.props.fetchData(FETCH_SEARCH_DATA, `v1${this.props.location.pathname}`);

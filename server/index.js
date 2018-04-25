@@ -7,7 +7,7 @@ const Loadable = require('react-loadable');
 const app = express();
 app.use(compression());
 
-app.get(['/', '/listing/home/:id', '/listing/experience/:id'], serverRenderer);
+app.get(['/', '/listing/home/:id', '/listing/experience/:id', '/search/:type', '/listing/restaurant/:id', '/search'], serverRenderer);
 
 app.use(express.static('build'));
 

@@ -1,4 +1,5 @@
 import {
+  FETCH_SEARCH_DATA,
   RESET_INDIVIDUAL_DATA, RESET_SEARCH_DATA, SEARCH_PAGE_LOADING_FALSE, SET_DATA, SET_INDIVIDUAL_EXPERIENCE_DATA,
   SET_INDIVIDUAL_HOME_DATA, SET_RESTAURANT_DATA,
   SET_SEARCH_DATA
@@ -28,6 +29,11 @@ export const listings = (state={experienceListing:{content:[]}, homeListing:{con
 
 export const searchData = (state={isLoading: true, listings: []}, action) => {
   switch (action.type) {
+    case FETCH_SEARCH_DATA:
+      return {
+        ...state,
+        isLoading: true
+      };
     case SET_SEARCH_DATA:
       return {
         ...state,
@@ -39,7 +45,10 @@ export const searchData = (state={isLoading: true, listings: []}, action) => {
         isLoading: action.payload
       };
     case RESET_SEARCH_DATA:
-      return [];
+      return {
+        isLoading: true,
+        listings: []
+      };
     default:
       return state;
   }
