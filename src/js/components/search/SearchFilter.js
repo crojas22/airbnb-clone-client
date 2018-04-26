@@ -17,12 +17,12 @@ const SearchFilter = props => {
 
 export const HomeFilterOptions = () => (
   <React.Fragment>
-    <BtnInput title="Dates" classes="border ml-1 mr-3 mt-1 font-regular btn-grey"/>
-    <BtnInput title="Guests" classes="border mr-3 mt-1 font-regular btn-grey"/>
-    <BtnInput title="Home type" classes="border mr-3 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
-    <BtnInput title="Price" classes="border mr-3 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
-    <BtnInput title="Instant Book" classes="border mr-3 mt-1 font-regular btn-grey d-none d-lg-inline-block"/>
-    <BtnInput title="Trip type" classes="border mr-3 mt-1 font-regular btn-grey d-none d-lg-inline-block"/>
+    <BtnInput title="Dates" classes="border ml-1 mr-2 mt-1 font-regular btn-grey"/>
+    <BtnInput title="Guests" classes="border mr-2 mt-1 font-regular btn-grey"/>
+    <BtnInput title="Home type" classes="border mr-2 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
+    <BtnInput title="Price" classes="border mr-2 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
+    <BtnInput title="Instant Book" classes="border mr-2 mt-1 font-regular btn-grey d-none d-lg-inline-block"/>
+    <BtnInput title="Trip type" classes="border mr-2 mt-1 font-regular btn-grey d-none d-lg-inline-block"/>
     <BtnInput title="More filters" classes="border font-regular mt-1 btn-grey d-none d-sm-inline-block"/>
     <BtnInput title="Filters" classes="border font-regular mt-1 btn-grey d-sm-none"/>
   </React.Fragment>
@@ -30,9 +30,20 @@ export const HomeFilterOptions = () => (
 
 export const ExperienceFilterOptions = () => (
   <React.Fragment>
-    <BtnInput title="Dates" classes="border ml-1 mr-3 mt-1 font-regular btn-grey"/>
-    <BtnInput title="Guests" classes="border mr-3 mt-1 font-regular btn-grey"/>
-    <BtnInput title="Price" classes="border mr-3 mt-1 font-regular btn-grey"/>
+    <BtnInput title="Dates" classes="border ml-1 mr-2 mt-1 font-regular btn-grey"/>
+    <BtnInput title="Guests" classes="border mr-2 mt-1 font-regular btn-grey"/>
+    <BtnInput title="Price" classes="border mr-2 mt-1 font-regular btn-grey"/>
+  </React.Fragment>
+);
+
+export const RestaurantFilterOptions = () => (
+  <React.Fragment>
+    <BtnInput title="Dates" classes="border ml-1 mr-2 mt-1 font-regular btn-grey ml-md-4"/>
+    <BtnInput title="Guests" classes="border mr-2 mt-1 font-regular btn-grey"/>
+    <BtnInput title="Filter" classes="border mr-2 mt-1 font-regular d-md-none btn-grey"/>
+    <BtnInput title="Time of day" classes="border ml-1 mr-2 mt-1 d-none d-md-inline-block font-regular btn-grey"/>
+    <BtnInput title="Type of Meal" classes="border mr-2 mt-1 font-regular d-md-inline-block d-none btn-grey"/>
+    <BtnInput title="Cuisines" classes="border mr-2 mt-1 font-regular d-md-inline-block d-none btn-grey"/>
   </React.Fragment>
 );
 

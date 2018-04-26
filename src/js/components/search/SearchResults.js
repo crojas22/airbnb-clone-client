@@ -4,14 +4,14 @@ import SingleLink from "../homepage/SingleLink";
 
 const SearchResults = props => {
   return(
-    <div className="mt-6 z-negative w-lg-or-less-100 w-65">
-      <div className="container-fluid pt-4">
+    <div className={"mt-6 z-negative w-lg-or-less-100 "+(props.withMap?"w-65":"mx-lg-4")}>
+      <div className={"container-fluid pt-4 "+(props.withMap?"":"px-md-4 px-lg-5")}>
         {
           props.header
         }
         <div className="row my-4">
           {
-            FunctionArray.renderComponentsWStyle(props.data, true , props.to, SingleLink, "col-lg-6 col-xl-4 col-sm-6 my-2")
+            FunctionArray.renderComponentsWStyle(props.data, true , props.to, props.component, props.linkClass)
           }
         </div>
       </div>
@@ -30,9 +30,11 @@ export const HomeResultsHeader = () => (
   </React.Fragment>
 );
 
-export const ExperienceResultsHeader = () => (
+export const GeneralResultsHeader = ({title}) => (
   <h3 className="mb-1">
-    Experiences in the spotlight
+    {
+      title
+    }
   </h3>
 );
 

@@ -24,7 +24,7 @@ const ExploreLinks = () => (
           Experiences
         </p>
       </Link>
-      <Link to="/listing/restaurant/1" onClick={scrollTop} className="d-lg-flex w-lg-100 align-items-lg-center border-shadow rounded">
+      <Link to="/search/restaurants" onClick={scrollTop} className="d-lg-flex w-lg-100 align-items-lg-center border-shadow rounded">
         <div>
           <img className="size-190-85 img-fluid w-100" src="/images/misc/experience-restaurant.jpeg" alt="restaurant"/>
         </div>
@@ -34,6 +34,6 @@ const ExploreLinks = () => (
       </Link>
     </div>
   </div>
-)
+);
 
 export default ExploreLinks;

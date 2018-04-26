@@ -93,6 +93,8 @@ export default OnOffWithMount((
               </div>
             </div>
             <RestaurantInfoCard
+              latitude={listing.location.latitude}
+              longitude={listing.location.longitude}
               title={listing.title}
               address={listing.address}
               city={listing.city}

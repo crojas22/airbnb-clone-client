@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleMapApi from "../reusable/GoogleMapApi";
 import MdLocalRestaurant from 'react-icons/lib/md/local-restaurant';
 
-export default ({title, address, city, phone, website}) => {
+export default ({title, address, city, phone, website, latitude, longitude}) => {
   return(
     <div className="shadow">
       <div>
@@ -11,8 +11,8 @@ export default ({title, address, city, phone, website}) => {
           zoom={15}
           restaurant={true}
           disableUI={true}
-          latitude={37.090240}
-          longitude={-95.712891}
+          latitude={latitude}
+          longitude={longitude}
         />
       </div>
       <div>
