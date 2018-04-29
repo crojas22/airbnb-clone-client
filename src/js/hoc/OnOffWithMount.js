@@ -29,7 +29,7 @@ const OnOffWithMount = InnerComponent => parameter => {
     };
   
     render() {
-      if (Object.keys(this.props.listing).length < 1) {
+      if (Object.keys(this.props.listing).length < 3) {
         return <Loading />
       }
       return(

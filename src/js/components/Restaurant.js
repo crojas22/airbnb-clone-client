@@ -16,7 +16,8 @@ import { FETCH_RESTAURANT_DATA } from "../type";
 
 export default OnOffWithMount((
   {
-    listing
+    listing,
+    sendAction
   }
 ) => {
   return(
@@ -109,7 +110,10 @@ export default OnOffWithMount((
                      stick="col-md-5 col-lg-6"
                      notStick="d-md-block col-md-5 col-lg-6"
                      render={
-                       <RestaurantReservationSide />
+                       <RestaurantReservationSide
+                         listing={listing}
+                         sendAction={sendAction}
+                       />
                      }/>
         </div>
       </div>

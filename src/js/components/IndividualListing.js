@@ -80,6 +80,8 @@ const IndividualListing = props => {
                      notStick="d-lg-block col-lg-4"
                      render={
                        <QuickReservation price={props.listing.price}
+                                         sendAction={props.sendAction}
+                                         listing={props.listing}
                                          per={props.listing.typeOfCharge}/>
                      }/>
         </div>
@@ -91,6 +93,8 @@ const IndividualListing = props => {
                          <CloseButton clickOnOff={props.clickOnOff}/>
                          <QuickReservation classes="border-shadow"
                                            price={props.listing.price}
+                                           sendAction={props.sendAction}
+                                           listing={props.listing}
                                            per={props.listing.typeOfCharge} />
                        </div>
                      }

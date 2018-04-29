@@ -1,30 +1,33 @@
 import React from 'react';
 import MessageWithSearch from "./MessageWithSearch";
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/map';
-import { timer } from 'rxjs/observable/timer';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/repeat';
-
 
 class MainGallery extends React.Component {
   state = {
     activeModal: false,
+    isVisible: document.visibilityState,
     active: 0
   };
   
   componentDidMount() {
-    this.fiveSeconds$ = timer(5000,1000)
-      .take(3)
-      .repeat()
-      .subscribe(result => {
-        if (result > 1) this.setState(prevState => ({active: (prevState.active+1)%2}))
-      })
+    document.addEventListener("visibilitychange",this.checkVisibility, false);
+    this.timer = setInterval(this.createTimer, 7000)
   }
   
   componentWillUnmount() {
-    this.fiveSeconds$.unsubscribe();
+    clearInterval(this.timer);
   }
+  
+  createTimer = () => this.setState(prevState => ({active: (prevState.active+1)%2}));
+  
+  checkVisibility = () => {
+    this.setState({isVisible: document.visibilityState});
+    if (this.state.isVisible === "hidden") {
+      clearInterval(this.timer);
+    }
+    if (this.state.isVisible === "visible") {
+      this.timer = setInterval(this.createTimer, 7000)
+    }
+  };
   
   clickOnOff = (target) => {
     this.setState(prevState => ({
@@ -36,11 +39,17 @@ class MainGallery extends React.Component {
     return(
       <div id="main-gallery" className="d-none d-md-block">
         <div className="position-relative w-100">
-          <div id="img1" className={"position-absolute w-100 set-higher z-negative "+(this.state.active===0?"move-up-slow":"d-none")}>
-          </div>
-          <div id="img2" className={"position-absolute w-100 set-higher z-negative "+(this.state.active===1?"move-up-slow":"d-none")}>
-          </div>
+          {
+            this.state.isVisible === "visible" ?
+              <React.Fragment>
+                <div id="img1" style={{display: (this.state.active===0? "": "none")}} className={"position-absolute w-100 set-higher z-negative move-up-slow"}>
+                </div>
+                <div id="img2" style={{display: (this.state.active===1? "": "none")}} className={"position-absolute w-100 set-higher z-negative move-up-slow"}>
+                </div>
+              </React.Fragment>: null
+          }
           <MessageWithSearch active={this.state.activeModal}
+                             activeBackground={this.state.active}
                              clickOnOff={this.clickOnOff}/>
         </div>
       </div>

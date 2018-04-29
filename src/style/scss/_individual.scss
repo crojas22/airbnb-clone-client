@@ -39,3 +39,12 @@
 .text-green {
   color: #008487;
 }
+.underline-hover {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.bg-light-green {
+  background-color: #98ede7;
+}

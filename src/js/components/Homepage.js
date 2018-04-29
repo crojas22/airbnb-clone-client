@@ -12,7 +12,6 @@ import { BtnLink } from "./reusable/Buttons";
 import { scrollTop, SingleRestaurantLink } from "./homepage/SingleLink";
 import Footer from "./reusable/Footer";
 import { Loading } from "./reusable/Loading";
-import Restaurant from "./Restaurant";
 import SingleLink from "./homepage/SingleLink";
 
 class Homepage extends Component {
@@ -32,7 +31,9 @@ class Homepage extends Component {
     return(
       <div>
         <Navigation />
-        <MainGallery />
+        <div className="bg-white w-100 position-absolute" style={{height: 60, top: "-50px"}}>
+        </div>
+        <MainGallery/>
         <div className="bg-white">
           <div className="container">
             <ExploreLinks />
@@ -52,10 +53,10 @@ class Homepage extends Component {
                           <BtnLink to="search/experiences" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
                         }
                         homeListing={this.props.experienceListing}/>
-          <GroupOfLinks title="Restaurants in America" to="restaurant"
+          <GroupOfLinks title="Restaurants in america" to="restaurant"
                         component={SingleRestaurantLink}
                         linkTo={
-                          <BtnLink to="search/experiences" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
+                          <BtnLink to="search/restaurants" onClick={scrollTop} classes="pl-0 color-green my-2" title="Show all (2000+) >"/>
                         }
                         homeListing={this.props.restaurants}/>
         </div>

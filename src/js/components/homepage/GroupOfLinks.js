@@ -32,7 +32,7 @@ const GroupOfLinks = props => {
 
 GroupOfLinks.propTypes = {
   title: PropTypes.string,
-  homeListing: PropTypes.array.isRequired,
+  homeListing: PropTypes.array,
   linkTo: PropTypes.element
 };
 

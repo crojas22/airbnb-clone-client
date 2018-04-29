@@ -100,7 +100,7 @@ class SearchPage extends Component {
                               homeListing={this.props.data.slice(0,8)}/>
               </div>
               <div className="px-3 px-sm-4 px-md-5 mx-md-4 mt-2">
-                <h3 >Restaurants around America</h3>
+                <h3 >Restaurants around america</h3>
                 <GroupOfLinks to="restaurant"
                               component={SingleRestaurantLink}
                               homeListing={this.props.data.slice(4)}/>

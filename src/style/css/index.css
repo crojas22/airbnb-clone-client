@@ -15,7 +15,7 @@
   transition: transform 250ms ease-out; }
 
 .move-up-slow {
-  animation: moveSlow 30s ease-in-out, goodBye 6s 2s ease-in; }
+  animation: moveSlow 35s ease-in-out, goodBye 7s 1s ease-in; }
 
 @keyframes goodBye {
   0% {
@@ -208,6 +208,12 @@
 
 .text-green {
   color: #008487; }
+
+.underline-hover:hover {
+  text-decoration: underline; }
+
+.bg-light-green {
+  background-color: #98ede7; }
 
 @media only screen and (max-width: 576px) {
   .drop {

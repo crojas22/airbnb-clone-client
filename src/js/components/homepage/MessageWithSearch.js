@@ -19,8 +19,9 @@ const MessageWithSearch = props => (
         <div className="d-flex bg-white align-items-center rounded">
           <SearchInputWithIcon
             for="input-gallery"
-            inputClass="w-100 font-2 h-3rem px-2 py-3 border-0"
-            button={<BtnSubmit title="Search" classes="btn-main p-2 m-2"/>}/>
+            placeholder={"Try "+(props.activeBackground === 0?'"Home in Venice"':'"Outdoor experience"')}
+            inputClass="w-100 font-1 h-3rem px-2 py-3 border-0"
+            button={<BtnSubmit title="Search" classes="btn-main p-2 m-2 "/>}/>
         </div>
         <div className="position-relative">
           <DropDownOptions active={(props.active2? " ":" d-none")}/>
@@ -43,11 +44,15 @@ export const SearchInputWithIcon = props => (
     <label htmlFor={props.for} className="ml-2 mt-1 mb-0">
       <MdSearch size={25} color={"#757575"}/>
     </label>
-    <input id={props.for} className={props.inputClass} placeholder="Search Locations"/>
+    <input id={props.for} className={props.inputClass} placeholder={props.placeholder}/>
     {
       props.button
     }
   </React.Fragment>
 );
+
+SearchInputWithIcon.defaultProps = {
+  placeholder: "Search Locations"
+};
 
 export default FormSupport(MessageWithSearch);
