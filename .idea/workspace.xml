@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb23a7f9-7326-429a-9225-cbb277d51630" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/Homepage.js" afterPath="$PROJECT_DIR$/src/js/components/Homepage.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/IndividualListing.js" afterPath="$PROJECT_DIR$/src/js/components/IndividualListing.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/Restaurant.js" afterPath="$PROJECT_DIR$/src/js/components/Restaurant.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/SearchPage.js" afterPath="$PROJECT_DIR$/src/js/components/SearchPage.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/homepage/GroupOfLinks.js" afterPath="$PROJECT_DIR$/src/js/components/homepage/GroupOfLinks.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/homepage/MainGallery.js" afterPath="$PROJECT_DIR$/src/js/components/homepage/MainGallery.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/homepage/MessageWithSearch.js" afterPath="$PROJECT_DIR$/src/js/components/homepage/MessageWithSearch.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/individual/QuickReservation.js" afterPath="$PROJECT_DIR$/src/js/components/individual/QuickReservation.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/restaurant/RestaurantReservationSide.js" afterPath="$PROJECT_DIR$/src/js/components/restaurant/RestaurantReservationSide.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/reusable/form/DropDownOptions.js" afterPath="$PROJECT_DIR$/src/js/components/reusable/form/DropDownOptions.js" />
       <change beforePath="$PROJECT_DIR$/src/js/epics/index.js" afterPath="$PROJECT_DIR$/src/js/epics/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/hoc/OnOffWithMount.js" afterPath="$PROJECT_DIR$/src/js/hoc/OnOffWithMount.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/reducer/listings.js" afterPath="$PROJECT_DIR$/src/js/reducer/listings.js" />
-      <change beforePath="$PROJECT_DIR$/src/js/type/index.js" afterPath="$PROJECT_DIR$/src/js/type/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/style/css/index.css" afterPath="$PROJECT_DIR$/src/style/css/index.css" />
-      <change beforePath="$PROJECT_DIR$/src/style/scss/_animation.scss" afterPath="$PROJECT_DIR$/src/style/scss/_animation.scss" />
-      <change beforePath="$PROJECT_DIR$/src/style/scss/_individual.scss" afterPath="$PROJECT_DIR$/src/style/scss/_individual.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,7 +59,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndividualListing.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IndividualListing.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/components/IndividualListing.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="412">
@@ -125,6 +108,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
               <caret line="26" column="70" lean-forward="false" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/epics/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -199,7 +192,6 @@
         <option value="$PROJECT_DIR$/src/js/components/reusable/form/DropDownOptions.js" />
         <option value="$PROJECT_DIR$/src/js/components/homepage/MessageWithSearch.js" />
         <option value="$PROJECT_DIR$/src/js/reducer/individualPageSettings.js" />
-        <option value="$PROJECT_DIR$/src/js/epics/index.js" />
         <option value="$PROJECT_DIR$/src/style/scss/_individual.scss" />
         <option value="$PROJECT_DIR$/src/js/components/reusable/Buttons.js" />
         <option value="$PROJECT_DIR$/src/js/hoc/OnOffWithMount.js" />
@@ -211,6 +203,7 @@
         <option value="$PROJECT_DIR$/src/js/components/restaurant/RestaurantReservationSide.js" />
         <option value="$PROJECT_DIR$/src/js/components/individual/QuickReservation.js" />
         <option value="$PROJECT_DIR$/src/js/components/IndividualListing.js" />
+        <option value="$PROJECT_DIR$/src/js/epics/index.js" />
       </list>
     </option>
   </component>
@@ -532,12 +525,12 @@
       <workItem from="1524519681977" duration="7500000" />
       <workItem from="1524583264537" duration="13256000" />
       <workItem from="1524697921048" duration="6144000" />
-      <workItem from="1524922934122" duration="38920000" />
+      <workItem from="1524922934122" duration="39039000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270826000" />
+    <option name="totallyTimeSpent" value="270945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="271" y="131" width="1134" height="726" extended-state="0" />
@@ -551,11 +544,11 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25757575" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25673535" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23260073" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23260073" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -898,14 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/epics/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/action/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1014,6 +999,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
           <caret line="96" column="66" lean-forward="false" selection-start-line="96" selection-start-column="66" selection-end-line="96" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/epics/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="52" />
           <folding />
         </state>
       </provider>
