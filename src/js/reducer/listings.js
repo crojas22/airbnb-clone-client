@@ -1,12 +1,12 @@
 import {
   CANCEL_CHANGES_TO_INDIVIDUAL_HOME_GUEST_COUNT_VALUE,
   DECREASE_HOME_GUEST_COUNT_ADULTS, DECREASE_HOME_GUEST_COUNT_CHILDREN, DECREASE_HOME_GUEST_COUNT_INFANTS,
-  DECREASE_RESTAURANT_GUEST_COUNT, DECREASE_SEARCH_HOME_GUEST_COUNT_ADULTS, DECREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN,
-  DECREASE_SEARCH_HOME_GUEST_COUNT_INFANTS,
+  DECREASE_RESTAURANT_GUEST_COUNT, DECREASE_SEARCH_GUEST_COUNT_ADULTS, DECREASE_SEARCH_GUEST_COUNT_CHILDREN,
+  DECREASE_SEARCH_GUEST_COUNT_INFANTS,
   FETCH_SEARCH_DATA, INCREASE_HOME_GUEST_COUNT_ADULTS, INCREASE_HOME_GUEST_COUNT_CHILDREN,
-  INCREASE_HOME_GUEST_COUNT_INFANTS, INCREASE_RESTAURANT_GUEST_COUNT, INCREASE_SEARCH_HOME_GUEST_COUNT_ADULTS,
-  INCREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN, INCREASE_SEARCH_HOME_GUEST_COUNT_INFANTS,
-  RESET_INDIVIDUAL_DATA, RESET_RESTAURANT_GUEST_COUNT_INDIVIDUAL, RESET_SEARCH_DATA, RESET_SEARCH_HOME_GUEST_COUNT,
+  INCREASE_HOME_GUEST_COUNT_INFANTS, INCREASE_RESTAURANT_GUEST_COUNT, INCREASE_SEARCH_GUEST_COUNT_ADULTS,
+  INCREASE_SEARCH_GUEST_COUNT_CHILDREN, INCREASE_SEARCH_GUEST_COUNT_INFANTS,
+  RESET_INDIVIDUAL_DATA, RESET_RESTAURANT_GUEST_COUNT_INDIVIDUAL, RESET_SEARCH_DATA, RESET_SEARCH_GUEST_COUNT,
   SEARCH_PAGE_LOADING_FALSE, SET_DATA,
   SET_INDIVIDUAL_EXPERIENCE_DATA,
   SET_INDIVIDUAL_HOME_DATA, SET_RESTAURANT_DATA,
@@ -140,97 +140,97 @@ const initialSearchOptionsSettingsState = {
 
 export const searchOptionsSettings = (state=initialSearchOptionsSettingsState, action) => {
   switch (action.type) {
-    case INCREASE_SEARCH_HOME_GUEST_COUNT_ADULTS:
+    case INCREASE_SEARCH_GUEST_COUNT_ADULTS:
       return {
         ...state,
-        homes: {
-          ...state.homes,
+        [action.payload]: {
+          ...state[action.payload],
           guests: {
-            ...state.homes.guests,
+            ...state[action.payload].guests,
             guestCount: {
-              ...state.homes.guests.guestCount,
-              adults: state.homes.guests.guestCount.adults += 1
+              ...state[action.payload].guests.guestCount,
+              adults: state[action.payload].guests.guestCount.adults += 1
             }
           }
         }
       };
-    case DECREASE_SEARCH_HOME_GUEST_COUNT_ADULTS:
+    case DECREASE_SEARCH_GUEST_COUNT_ADULTS:
       return {
         ...state,
-        homes: {
-          ...state.homes,
+        [action.payload]: {
+          ...state[action.payload],
           guests: {
-            ...state.homes.guests,
+            ...state[action.payload].guests,
             guestCount: {
-              ...state.homes.guests.guestCount,
-              adults: state.homes.guests.guestCount.adults -= 1
+              ...state[action.payload].guests.guestCount,
+              adults: state[action.payload].guests.guestCount.adults -= 1
             }
           }
         }
       };
-    case INCREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN:
+    case INCREASE_SEARCH_GUEST_COUNT_CHILDREN:
       return {
         ...state,
-        homes: {
-          ...state.homes,
+        [action.payload]: {
+          ...state[action.payload],
           guests: {
-            ...state.homes.guests,
+            ...state[action.payload].guests,
             guestCount: {
-              ...state.homes.guests.guestCount,
-              children: state.homes.guests.guestCount.children += 1
+              ...state[action.payload].guests.guestCount,
+              children: state[action.payload].guests.guestCount.children += 1
             }
           }
         }
       };
-    case DECREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN:
+    case DECREASE_SEARCH_GUEST_COUNT_CHILDREN:
       return {
         ...state,
-        homes: {
-          ...state.homes,
+        [action.payload]: {
+          ...state[action.payload],
           guests: {
-            ...state.homes.guests,
+            ...state[action.payload].guests,
             guestCount: {
-              ...state.homes.guests.guestCount,
-              children: state.homes.guests.guestCount.children -= 1
+              ...state[action.payload].guests.guestCount,
+              children: state[action.payload].guests.guestCount.children -= 1
             }
           }
         }
       };
-    case INCREASE_SEARCH_HOME_GUEST_COUNT_INFANTS:
+    case INCREASE_SEARCH_GUEST_COUNT_INFANTS:
       return {
         ...state,
-        homes: {
-          ...state.homes,
+        [action.payload]: {
+          ...state[action.payload],
           guests: {
-            ...state.homes.guests,
+            ...state[action.payload].guests,
             guestCount: {
-              ...state.homes.guests.guestCount,
-              infants: state.homes.guests.guestCount.infants += 1
+              ...state[action.payload].guests.guestCount,
+              infants: state[action.payload].guests.guestCount.infants += 1
             }
           }
         }
       };
-    case DECREASE_SEARCH_HOME_GUEST_COUNT_INFANTS:
+    case DECREASE_SEARCH_GUEST_COUNT_INFANTS:
       return {
         ...state,
-        homes: {
-          ...state.homes,
+        [action.payload]: {
+          ...state[action.payload],
           guests: {
-            ...state.homes.guests,
+            ...state[action.payload].guests,
             guestCount: {
-              ...state.homes.guests.guestCount,
-              infants: state.homes.guests.guestCount.infants -= 1
+              ...state[action.payload].guests.guestCount,
+              infants: state[action.payload].guests.guestCount.infants -= 1
             }
           }
         }
       };
-    case RESET_SEARCH_HOME_GUEST_COUNT:
+    case RESET_SEARCH_GUEST_COUNT:
       return {
         ...state,
-        homes: {
-          ...state.homes,
+        [action.payload]: {
+          ...state[action.payload],
           guests: {
-            ...state.homes.guests,
+            ...state[action.payload].guests,
             guestCount: {
               adults: 1,
               children: 0,
@@ -401,7 +401,14 @@ export const individualRestaurant = (state=individualRestaurantState, action) =>
         }
       };
     case RESET_INDIVIDUAL_DATA:
-      return individualRestaurantState;
+      return {
+        settings: {
+          guestsDropdownIsOpen: false
+        },
+        guestCount: {
+          guests: 2
+        }
+      };
     default:
       return state;
   }

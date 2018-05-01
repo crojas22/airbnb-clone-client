@@ -13,11 +13,11 @@ import SearchResults, {
 } from "./search/SearchResults";
 import { fetchData, sendAction, setData } from "../action";
 import {
-  DECREASE_SEARCH_HOME_GUEST_COUNT_ADULTS, DECREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN,
-  DECREASE_SEARCH_HOME_GUEST_COUNT_INFANTS,
-  FETCH_SEARCH_DATA, INCREASE_SEARCH_HOME_GUEST_COUNT_ADULTS, INCREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN,
-  INCREASE_SEARCH_HOME_GUEST_COUNT_INFANTS,
-  RESET_SEARCH_DATA, RESET_SEARCH_HOME_GUEST_COUNT,
+  DECREASE_SEARCH_GUEST_COUNT_ADULTS, DECREASE_SEARCH_GUEST_COUNT_CHILDREN,
+  DECREASE_SEARCH_GUEST_COUNT_INFANTS,
+  FETCH_SEARCH_DATA, INCREASE_SEARCH_GUEST_COUNT_ADULTS, INCREASE_SEARCH_GUEST_COUNT_CHILDREN,
+  INCREASE_SEARCH_GUEST_COUNT_INFANTS,
+  RESET_SEARCH_DATA, RESET_SEARCH_GUEST_COUNT,
   SEARCH_PAGE_LOADING_FALSE
 } from "../type";
 import { Loading } from "./reusable/Loading";
@@ -53,7 +53,7 @@ class SearchPage extends Component {
     if (this.props.isLoading) {
       return <Loading />
     }
-    const { location, data, pageSettings, sendAction, setData, match } = this.props;
+    const { location, data, pageSettings, setData, match } = this.props;
     return(
       <div className="position-relative">
         <Navigation classes="fixed w-100 bg-white z-100"/>
@@ -62,19 +62,13 @@ class SearchPage extends Component {
           <React.Fragment>
             <SearchFilter classes="fixed w-100 bg-white z-50"
                           options={<HomeFilterOptions {...this.state} clickOnOff={this.clickOnOff} settings={pageSettings}/>}/>
-            <SearchResults data={data}
-                           to="home"
-                           withMap={true}
-                           component={SingleLink}
-                           linkClass="col-lg-6 col-xl-4 col-sm-6 my-2"
-                           header={<HomeResultsHeader/>}/>
             <PartialModal
               clickOff={this.clickOff}
               InnerComponent={
                 <div style={{width: 350, left: 93}} className="position-relative">
                   <GuestsDropdownOptions
                     sendAction={setData}
-                    cancelActions={() => sendAction(RESET_SEARCH_HOME_GUEST_COUNT)}
+                    cancelActions={() => setData(RESET_SEARCH_GUEST_COUNT, match.params.type)}
                     applyActions={() => {
                       this.clickOnOff("guests");
                       this.clickOnOff("isModalOn");
@@ -84,23 +78,29 @@ class SearchPage extends Component {
                     adultsCount={pageSettings.guests.guestCount.adults + "+"}
                     childrenCount={pageSettings.guests.guestCount.children+"+"}
                     infantsCount={pageSettings.guests.guestCount.infants+"+"}
-                    actionIncreaseGuestAdult={INCREASE_SEARCH_HOME_GUEST_COUNT_ADULTS}
+                    actionIncreaseGuestAdult={INCREASE_SEARCH_GUEST_COUNT_ADULTS}
                     disablePlusAdult={pageSettings.guests.guestCount.adults > 9}
-                    actionDecreaseGuestAdult={DECREASE_SEARCH_HOME_GUEST_COUNT_ADULTS}
+                    actionDecreaseGuestAdult={DECREASE_SEARCH_GUEST_COUNT_ADULTS}
                     disableMinusAdult={pageSettings.guests.guestCount.adults < 2}
-                    actionIncreaseGuestChildren={INCREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN}
+                    actionIncreaseGuestChildren={INCREASE_SEARCH_GUEST_COUNT_CHILDREN}
                     disablePlusChildren={pageSettings.guests.guestCount.children > 4}
-                    actionDecreaseGuestChildren={DECREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN}
+                    actionDecreaseGuestChildren={DECREASE_SEARCH_GUEST_COUNT_CHILDREN}
                     disableMinusChildren={pageSettings.guests.guestCount.children < 1}
-                    actionIncreaseGuestInfants={INCREASE_SEARCH_HOME_GUEST_COUNT_INFANTS}
+                    actionIncreaseGuestInfants={INCREASE_SEARCH_GUEST_COUNT_INFANTS}
                     disablePlusInfants={pageSettings.guests.guestCount.infants > 4}
-                    actionDecreaseGuestInfants={DECREASE_SEARCH_HOME_GUEST_COUNT_INFANTS}
+                    actionDecreaseGuestInfants={DECREASE_SEARCH_GUEST_COUNT_INFANTS}
                     disableMinusInfants={pageSettings.guests.guestCount.infants < 1}
                   />
                 </div>
               }
               active={this.state.isModalOn}
             />
+            <SearchResults data={data}
+                           to="home"
+                           withMap={true}
+                           component={SingleLink}
+                           linkClass="col-lg-6 col-xl-4 col-sm-6 my-2"
+                           header={<HomeResultsHeader/>}/>
             <div className="position-fixed w-35 right-0 top-145">
               <div className="d-none d-lg-block">
                 <GoogleMapApi
@@ -119,7 +119,40 @@ class SearchPage extends Component {
           (location.pathname === "/search/experiences" &&
             <React.Fragment>
               <SearchFilter classes="fixed w-100 bg-white z-50"
-                            options={<ExperienceFilterOptions />}/>
+                            options={<ExperienceFilterOptions {...this.state} clickOnOff={this.clickOnOff} settings={pageSettings}/>}/>
+              <PartialModal
+                clickOff={this.clickOff}
+                InnerComponent={
+                  <div style={{width: 350, left: 93}} className="position-relative">
+                    <GuestsDropdownOptions
+                      sendAction={setData}
+                      cancelActions={() => setData(RESET_SEARCH_GUEST_COUNT, match.params.type)}
+                      applyActions={() => {
+                        this.clickOnOff("guests");
+                        this.clickOnOff("isModalOn");
+                      }}
+                      location={match.params.type}
+                      classes="border-top rounded"
+                      adultsCount={pageSettings.guests.guestCount.adults + "+"}
+                      childrenCount={pageSettings.guests.guestCount.children+"+"}
+                      infantsCount={pageSettings.guests.guestCount.infants+"+"}
+                      actionIncreaseGuestAdult={INCREASE_SEARCH_GUEST_COUNT_ADULTS}
+                      disablePlusAdult={pageSettings.guests.guestCount.adults > 9}
+                      actionDecreaseGuestAdult={DECREASE_SEARCH_GUEST_COUNT_ADULTS}
+                      disableMinusAdult={pageSettings.guests.guestCount.adults < 2}
+                      actionIncreaseGuestChildren={INCREASE_SEARCH_GUEST_COUNT_CHILDREN}
+                      disablePlusChildren={pageSettings.guests.guestCount.children > 4}
+                      actionDecreaseGuestChildren={DECREASE_SEARCH_GUEST_COUNT_CHILDREN}
+                      disableMinusChildren={pageSettings.guests.guestCount.children < 1}
+                      actionIncreaseGuestInfants={INCREASE_SEARCH_GUEST_COUNT_INFANTS}
+                      disablePlusInfants={pageSettings.guests.guestCount.infants > 4}
+                      actionDecreaseGuestInfants={DECREASE_SEARCH_GUEST_COUNT_INFANTS}
+                      disableMinusInfants={pageSettings.guests.guestCount.infants < 1}
+                    />
+                  </div>
+                }
+                active={this.state.isModalOn}
+              />
               <SearchResults data={data}
                              to="experience"
                              withMap={true}
@@ -145,7 +178,40 @@ class SearchPage extends Component {
             <React.Fragment>
               <SearchFilter
                 classes="fixed w-100 bg-white z-50 pl-md-5"
-                options={<RestaurantFilterOptions />}
+                options={<RestaurantFilterOptions {...this.state} clickOnOff={this.clickOnOff} settings={pageSettings}/>}
+              />
+              <PartialModal
+                clickOff={this.clickOff}
+                InnerComponent={
+                  <div style={{width: 325, left: 143}} className="position-relative">
+                    <GuestsDropdownOptions
+                      sendAction={setData}
+                      cancelActions={() => setData(RESET_SEARCH_GUEST_COUNT, match.params.type)}
+                      applyActions={() => {
+                        this.clickOnOff("guests");
+                        this.clickOnOff("isModalOn");
+                      }}
+                      location={match.params.type}
+                      classes="border-top rounded"
+                      adultsCount={pageSettings.guests.guestCount.adults + "+"}
+                      childrenCount={pageSettings.guests.guestCount.children+"+"}
+                      infantsCount={pageSettings.guests.guestCount.infants+"+"}
+                      actionIncreaseGuestAdult={INCREASE_SEARCH_GUEST_COUNT_ADULTS}
+                      disablePlusAdult={pageSettings.guests.guestCount.adults > 9}
+                      actionDecreaseGuestAdult={DECREASE_SEARCH_GUEST_COUNT_ADULTS}
+                      disableMinusAdult={pageSettings.guests.guestCount.adults < 2}
+                      actionIncreaseGuestChildren={INCREASE_SEARCH_GUEST_COUNT_CHILDREN}
+                      disablePlusChildren={pageSettings.guests.guestCount.children > 4}
+                      actionDecreaseGuestChildren={DECREASE_SEARCH_GUEST_COUNT_CHILDREN}
+                      disableMinusChildren={pageSettings.guests.guestCount.children < 1}
+                      actionIncreaseGuestInfants={INCREASE_SEARCH_GUEST_COUNT_INFANTS}
+                      disablePlusInfants={pageSettings.guests.guestCount.infants > 4}
+                      actionDecreaseGuestInfants={DECREASE_SEARCH_GUEST_COUNT_INFANTS}
+                      disableMinusInfants={pageSettings.guests.guestCount.infants < 1}
+                    />
+                  </div>
+                }
+                active={this.state.isModalOn}
               />
               <div className="px-3 px-sm-4 px-md-5 mx-md-4 mt-6">
                 <h3 className="mb-0 pt-4">Restaurants in the spotlight</h3>
