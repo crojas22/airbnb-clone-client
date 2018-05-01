@@ -54,7 +54,7 @@ export const listings = (state=initialState, action) => {
   }
 };
 
-export const searchData = (state={isLoading: true, listings: []}, action) => {
+export const searchData = (state={listings: [], isLoading: true}, action) => {
   switch (action.type) {
     case FETCH_SEARCH_DATA:
       return {
@@ -64,7 +64,8 @@ export const searchData = (state={isLoading: true, listings: []}, action) => {
     case SET_SEARCH_DATA:
       return {
         ...state,
-        listings: action.payload
+        listings: action.payload,
+        isLoading: false
       };
     case SEARCH_PAGE_LOADING_FALSE:
       return {
@@ -73,11 +74,50 @@ export const searchData = (state={isLoading: true, listings: []}, action) => {
       };
     case RESET_SEARCH_DATA:
       return {
-        isLoading: true,
-        listings: []
+        listings: [],
+        isLoading: true
       };
     default:
       return state;
+  }
+};
+
+const initialSearchOptionsSettingsState = {
+  homes: {
+    dates: {
+    
+    },
+    guests: {
+      isSelected: false,
+      count: 1
+    },
+    homeType: {
+    
+    },
+    price: {
+    
+    },
+    instantBook: {
+    
+    },
+    tripType: {
+    
+    },
+    moreFilter: {
+    
+    }
+  },
+  experiences: {
+  
+  },
+  restaurants: {
+  
+  }
+};
+
+export const searchOptionsSettings = (state=initialSearchOptionsSettingsState, action) => {
+  switch (action.type) {
+  
   }
 };
 

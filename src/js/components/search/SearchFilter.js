@@ -1,7 +1,8 @@
 import React from 'react';
 import { BtnInput } from "../reusable/Buttons";
+import OnOff from "../../hoc/OnOff";
 
-const SearchFilter = props => {
+export default props => {
   return(
     <div className="position-relative pt-4">
       <div className="pt-5 mt-sm-2 mt-lg-0">
@@ -15,10 +16,19 @@ const SearchFilter = props => {
   )
 };
 
-export const HomeFilterOptions = () => (
+export const HomeFilterOptions = ({clickOnOff,guests}) => (
   <React.Fragment>
-    <BtnInput title="Dates" classes="border ml-1 mr-2 mt-1 font-regular btn-grey"/>
-    <BtnInput title="Guests" classes="border mr-2 mt-1 font-regular btn-grey"/>
+    <BtnInput title="Dates"
+              classes="border ml-1 mr-2 mt-1 font-regular btn-grey"
+              onClick={() => clickOnOff("dates")}
+    />
+    <BtnInput title="Guests"
+              classes={"border mr-2 mt-1 font-regular "+(guests?"text-white bg-green":"btn-grey")}
+              onClick={() => {
+                clickOnOff("guests");
+                clickOnOff("isModalOn");
+              }}
+    />
     <BtnInput title="Home type" classes="border mr-2 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
     <BtnInput title="Price" classes="border mr-2 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
     <BtnInput title="Instant Book" classes="border mr-2 mt-1 font-regular btn-grey d-none d-lg-inline-block"/>
@@ -46,5 +56,3 @@ export const RestaurantFilterOptions = () => (
     <BtnInput title="Cuisines" classes="border mr-2 mt-1 font-regular d-md-inline-block d-none btn-grey"/>
   </React.Fragment>
 );
-
-export default SearchFilter;

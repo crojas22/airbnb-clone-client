@@ -7,7 +7,7 @@ class GoogleMapApi extends React.Component {
   }
   
   componentWillReceiveProps(nextProps) {
-    if (nextProps.listings !== undefined) {
+    if (nextProps.listings !== this.props.listings) {
       this.initMap(document.getElementById("map"), nextProps.listings);
     }
   }

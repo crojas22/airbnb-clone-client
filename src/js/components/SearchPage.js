@@ -12,13 +12,24 @@ import SearchResults, {
   HomeResultsHeader
 } from "./search/SearchResults";
 import { fetchData, sendAction, setData } from "../action";
-import { FETCH_SEARCH_DATA, RESET_SEARCH_DATA, SEARCH_PAGE_LOADING_FALSE } from "../type";
+import {
+  DECREASE_HOME_GUEST_COUNT_ADULTS,
+  DECREASE_HOME_GUEST_COUNT_CHILDREN, DECREASE_HOME_GUEST_COUNT_INFANTS, FETCH_SEARCH_DATA,
+  INCREASE_HOME_GUEST_COUNT_ADULTS,
+  INCREASE_HOME_GUEST_COUNT_CHILDREN, INCREASE_HOME_GUEST_COUNT_INFANTS, RESET_SEARCH_DATA,
+  SEARCH_PAGE_LOADING_FALSE, TOGGLE_GUESTS_DROPDOWN_HOME
+} from "../type";
 import { Loading } from "./reusable/Loading";
 import GoogleMapApi from "./reusable/GoogleMapApi";
 import SingleLink, { SingleRestaurantLink } from "./homepage/SingleLink";
 import GroupOfLinks from "./homepage/GroupOfLinks";
+import { PartialModal } from "./reusable/FullPageModal";
+import { GuestsDropdownOptions } from "./individual/QuickReservation";
 
 class SearchPage extends Component {
+  state = {
+    isModalOn: false
+  };
   
   async componentDidMount() {
     await this.props.fetchData(FETCH_SEARCH_DATA, `v1${this.props.location.pathname}`);
@@ -28,6 +39,8 @@ class SearchPage extends Component {
   componentWillUnmount() {
     this.props.sendAction(RESET_SEARCH_DATA);
   }
+  
+  clickOnOff = target => this.setState(prevState => ({[target]: !prevState[target]}));
   
   render() {
     if (this.props.isLoading) {
@@ -40,19 +53,30 @@ class SearchPage extends Component {
           (this.props.location.pathname === "/search/homes" &&
           <React.Fragment>
             <SearchFilter classes="fixed w-100 bg-white z-50"
-                          options={<HomeFilterOptions/>}/>
+                          options={<HomeFilterOptions {...this.state} clickOnOff={this.clickOnOff}/>}/>
             <SearchResults data={this.props.data}
                            to="home"
                            withMap={true}
                            component={SingleLink}
                            linkClass="col-lg-6 col-xl-4 col-sm-6 my-2"
                            header={<HomeResultsHeader/>}/>
+            <PartialModal
+              InnerComponent={
+                <GuestsDropdownOptions
+                  sendAction={sendAction}
+                  adultsCount
+                />
+              }
+              style={{width: 350, left: 93}}
+              classes="position-relative"
+              active={this.state.isModalOn}
+            />
             <div className="position-fixed w-35 right-0 top-145">
               <div className="d-none d-lg-block">
                 <GoogleMapApi
                   listings={this.props.data}
                   zoom={4}
-                  height="85vh"
+                  height="83vh"
                   multiple={true}
                   latitude={37.090240}
                   longitude={-95.712891}
@@ -77,7 +101,7 @@ class SearchPage extends Component {
                   <GoogleMapApi
                     listings={this.props.data}
                     zoom={4}
-                    height="85vh"
+                    height="83vh"
                     multiple={true}
                     latitude={37.090240}
                     longitude={-95.712891}

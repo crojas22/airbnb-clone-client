@@ -40,7 +40,9 @@ const QuickReservation = ({listing, classes, price, per, sendAction}) => {
                                    actionGuestTypeToggle={TOGGLE_GUESTS_DROPDOWN_HOME}
                                    dropDownComponent={
                                      <GuestsDropdownOptions
-                                       totalGuest={totalGuest}
+                                       adultsCount={listing.guestCount.adults}
+                                       childrenCount={listing.guestCount.children}
+                                       infantsCount={listing.guestCount.infants}
                                        sendAction={sendAction}
                                        listing={listing}
                                        actionGuestTypeToggle={TOGGLE_GUESTS_DROPDOWN_HOME}
@@ -50,6 +52,15 @@ const QuickReservation = ({listing, classes, price, per, sendAction}) => {
                                        actionDecreaseGuestChildren={DECREASE_HOME_GUEST_COUNT_CHILDREN}
                                        actionIncreaseGuestInfants={INCREASE_HOME_GUEST_COUNT_INFANTS}
                                        actionDecreaseGuestInfants={DECREASE_HOME_GUEST_COUNT_INFANTS}
+                                       disableMinusAdult={listing.guestCount.adults < 2}
+                                       disablePlusAdult={listing.guests <= totalGuest}
+                                       disableMinusChildren={listing.guestCount.children < 1}
+                                       disablePlusChildren={listing.guests <= totalGuest}
+                                       disableMinusInfants={listing.guestCount.infants < 1}
+                                       disablePlusInfants={listing.guestCount.infants > 4}
+                                       disclaimer={
+                                         `${listing.guests} guests maximum. Infants don’t count toward the number of guests.`
+                                       }
                                      />
                                    }
         />
@@ -95,30 +106,40 @@ export const GuestsDropdownOptions = ({
                                         actionDecreaseGuestChildren,
                                         actionIncreaseGuestInfants,
                                         actionDecreaseGuestInfants,
-                                        totalGuest
+                                        totalGuest,
+                                        disableMinusAdult,
+                                        disablePlusAdult,
+                                        disableMinusChildren,
+                                        disablePlusChildren,
+                                        disableMinusInfants,
+                                        disablePlusInfants,
+                                        adultsCount,
+                                        childrenCount,
+                                        infantsCount,
+                                        disclaimer
                                       }) => (
   <div className="position-absolute w-100 bg-white py-2 px-3 border-right border-left border-bottom border-top-green">
     <div className="d-flex justify-content-between align-items-center pt-3">
       <div className="font-1">
         Adults
       </div>
-      <div className="d-flex align-items-center justify-content-between w-50 pl-3">
+      <div className="d-flex align-items-center justify-content-between w-50 pl-xl-3">
         <div>
           <BtnInput title={<IoIosMinusOutline className="m-0" size={35} color={"#008488"}/>}
                     classes="p-0"
-                    disabled={listing.guestCount.adults < 2}
+                    disabled={disableMinusAdult}
                     onClick={() => sendAction(actionDecreaseGuestAdult)}
           />
         </div>
         <div className="mx-3 font-1">
           {
-            listing.guestCount.adults
+            adultsCount
           }
         </div>
         <div>
           <BtnInput title={<IoIosPlusOutline className="m-0" size={35} color={"#008488"}/>}
                     classes="p-0"
-                    disabled={listing.guests <= totalGuest}
+                    disabled={disablePlusAdult}
                     onClick={() => sendAction(actionIncreaseGuestAdult)}
           />
         </div>
@@ -133,24 +154,24 @@ export const GuestsDropdownOptions = ({
           Ages 2 - 12
         </div>
       </div>
-      <div className="d-flex align-items-center justify-content-between w-50 pl-3">
+      <div className="d-flex align-items-center justify-content-between w-50 pl-xl-3">
         <div>
           <BtnInput title={<IoIosMinusOutline className="m-0" size={35} color={"#008488"}/>}
                     onClick={() => sendAction(actionDecreaseGuestChildren)}
-                    disabled={listing.guestCount.children < 1}
+                    disabled={disableMinusChildren}
                     classes="p-0"
           />
         </div>
         <div className="mx-3 font-1">
           {
-            listing.guestCount.children
+            childrenCount
           }
         </div>
         <div>
           <BtnInput title={<IoIosPlusOutline  className="m-0" size={35} color={"#008488"}/>}
                     classes="p-0"
                     onClick={() => sendAction(actionIncreaseGuestChildren)}
-                    disabled={listing.guests <= totalGuest}
+                    disabled={disablePlusChildren}
           />
         </div>
       </div>
@@ -164,7 +185,7 @@ export const GuestsDropdownOptions = ({
           Under 2
         </div>
       </div>
-      <div className="d-flex align-items-center justify-content-between w-50 pl-3">
+      <div className="d-flex align-items-center justify-content-between w-50 pl-xl-3">
         <div>
           <BtnInput
             title={<IoIosMinusOutline
@@ -172,12 +193,12 @@ export const GuestsDropdownOptions = ({
               size={35}
               color={"#008488"}/>}
             onClick={() => sendAction(actionDecreaseGuestInfants)}
-            disabled={listing.guestCount.infants < 1}
+            disabled={disableMinusInfants}
             classes="p-0"/>
         </div>
-        <div className="font-1">
+        <div className="font-1 mx-3">
           {
-            listing.guestCount.infants
+            infantsCount
           }
         </div>
         <div>
@@ -185,18 +206,23 @@ export const GuestsDropdownOptions = ({
             classes="p-0"
             onClick={() => sendAction(actionIncreaseGuestInfants)}
             title={<IoIosPlusOutline className="m-0" size={35} color={"#008488"}/>}
-            disabled={listing.guestCount.infants > 4}
+            disabled={disablePlusInfants}
           />
         </div>
       </div>
     </div>
     <div className="smallest-font font-weight-light">
-      {listing.guests} guests maximum. Infants don’t count toward the number of guests.
+      {
+        disclaimer
+      }
     </div>
-    <div className="text-right mb-3 color-green font-1 cursor underline-hover"
-         onClick={() => sendAction(actionGuestTypeToggle)}
-    >
-      Close
+    <div className="d-flex justify-content-between mt-4 mb-3">
+      <div className="font-regular cursor underline-hover" onClick={() => sendAction(actionGuestTypeToggle)}>
+        Cancel
+      </div>
+      <div className="font-regular cursor underline-hover color-green">
+        Apply
+      </div>
     </div>
   </div>
 );

@@ -4,7 +4,7 @@ import SingleLink from "../homepage/SingleLink";
 
 const SearchResults = props => {
   return(
-    <div className={"mt-6 z-negative w-lg-or-less-100 "+(props.withMap?"w-65":"mx-lg-4")}>
+    <div className={"mt-5plus z-negative w-lg-or-less-100 "+(props.withMap?"w-65":"mx-lg-4")}>
       <div className={"container-fluid pt-4 "+(props.withMap?"":"px-md-4 px-lg-5")}>
         {
           props.header
