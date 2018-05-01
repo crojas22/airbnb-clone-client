@@ -19,12 +19,14 @@ export default ({trigger, active, InnerComponent, classes}) => {
   )
 };
 
-export const PartialModal = ({active, InnerComponent, classes, style}) => (
-  <div className={""+(active?"bg-lightWhite w-100 position-fixed z-150":"d-none")} style={{ height: "85vh", top: 140}}>
-    <div className={classes} style={style}>
-      {
-        InnerComponent
-      }
-    </div>
+export const PartialModal = ({active, InnerComponent, clickOff}) => (
+  <div className={"d-none "+(active?"bg-lightWhite w-100 position-fixed z-150 d-sm-block":"")}
+       id="partialModal"
+       style={{ height: "85vh", top: 140}}
+       onClick={clickOff}
+  >
+    {
+      InnerComponent
+    }
   </div>
 );

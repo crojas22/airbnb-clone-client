@@ -7,6 +7,7 @@ import IoIosPlusOutline from 'react-icons/lib/io/ios-plus-outline';
 import StarRating from "../reusable/StarRating";
 import { BtnInput } from "../reusable/Buttons";
 import {
+  CANCEL_CHANGES_TO_INDIVIDUAL_HOME_GUEST_COUNT_VALUE,
   DECREASE_HOME_GUEST_COUNT_ADULTS, DECREASE_HOME_GUEST_COUNT_CHILDREN, DECREASE_HOME_GUEST_COUNT_INFANTS,
   INCREASE_HOME_GUEST_COUNT_ADULTS,
   INCREASE_HOME_GUEST_COUNT_CHILDREN, INCREASE_HOME_GUEST_COUNT_INFANTS,
@@ -40,12 +41,13 @@ const QuickReservation = ({listing, classes, price, per, sendAction}) => {
                                    actionGuestTypeToggle={TOGGLE_GUESTS_DROPDOWN_HOME}
                                    dropDownComponent={
                                      <GuestsDropdownOptions
+                                       cancelActions={() => sendAction(CANCEL_CHANGES_TO_INDIVIDUAL_HOME_GUEST_COUNT_VALUE)}
+                                       applyActions={() => sendAction(TOGGLE_GUESTS_DROPDOWN_HOME)}
                                        adultsCount={listing.guestCount.adults}
                                        childrenCount={listing.guestCount.children}
                                        infantsCount={listing.guestCount.infants}
                                        sendAction={sendAction}
                                        listing={listing}
-                                       actionGuestTypeToggle={TOGGLE_GUESTS_DROPDOWN_HOME}
                                        actionIncreaseGuestAdult={INCREASE_HOME_GUEST_COUNT_ADULTS}
                                        actionDecreaseGuestAdult={DECREASE_HOME_GUEST_COUNT_ADULTS}
                                        actionIncreaseGuestChildren={INCREASE_HOME_GUEST_COUNT_CHILDREN}
@@ -61,6 +63,7 @@ const QuickReservation = ({listing, classes, price, per, sendAction}) => {
                                        disclaimer={
                                          `${listing.guests} guests maximum. Infants don’t count toward the number of guests.`
                                        }
+                                       classes="border-top-green"
                                      />
                                    }
         />
@@ -98,7 +101,6 @@ export const LabelInputDropDownTrigger = ({label, header, sendAction, listing, a
 
 export const GuestsDropdownOptions = ({
                                         sendAction,
-                                        actionGuestTypeToggle,
                                         listing,
                                         actionIncreaseGuestAdult,
                                         actionDecreaseGuestAdult,
@@ -106,7 +108,6 @@ export const GuestsDropdownOptions = ({
                                         actionDecreaseGuestChildren,
                                         actionIncreaseGuestInfants,
                                         actionDecreaseGuestInfants,
-                                        totalGuest,
                                         disableMinusAdult,
                                         disablePlusAdult,
                                         disableMinusChildren,
@@ -116,9 +117,13 @@ export const GuestsDropdownOptions = ({
                                         adultsCount,
                                         childrenCount,
                                         infantsCount,
-                                        disclaimer
+                                        disclaimer,
+                                        classes,
+                                        cancelActions,
+                                        applyActions,
+                                        location
                                       }) => (
-  <div className="position-absolute w-100 bg-white py-2 px-3 border-right border-left border-bottom border-top-green">
+  <div className={"position-absolute w-100 bg-white py-2 px-3 border-right border-left border-bottom "+ classes}>
     <div className="d-flex justify-content-between align-items-center pt-3">
       <div className="font-1">
         Adults
@@ -128,7 +133,7 @@ export const GuestsDropdownOptions = ({
           <BtnInput title={<IoIosMinusOutline className="m-0" size={35} color={"#008488"}/>}
                     classes="p-0"
                     disabled={disableMinusAdult}
-                    onClick={() => sendAction(actionDecreaseGuestAdult)}
+                    onClick={() => sendAction(actionDecreaseGuestAdult, location)}
           />
         </div>
         <div className="mx-3 font-1">
@@ -140,7 +145,7 @@ export const GuestsDropdownOptions = ({
           <BtnInput title={<IoIosPlusOutline className="m-0" size={35} color={"#008488"}/>}
                     classes="p-0"
                     disabled={disablePlusAdult}
-                    onClick={() => sendAction(actionIncreaseGuestAdult)}
+                    onClick={() => sendAction(actionIncreaseGuestAdult, location)}
           />
         </div>
       </div>
@@ -157,7 +162,7 @@ export const GuestsDropdownOptions = ({
       <div className="d-flex align-items-center justify-content-between w-50 pl-xl-3">
         <div>
           <BtnInput title={<IoIosMinusOutline className="m-0" size={35} color={"#008488"}/>}
-                    onClick={() => sendAction(actionDecreaseGuestChildren)}
+                    onClick={() => sendAction(actionDecreaseGuestChildren, location)}
                     disabled={disableMinusChildren}
                     classes="p-0"
           />
@@ -170,7 +175,7 @@ export const GuestsDropdownOptions = ({
         <div>
           <BtnInput title={<IoIosPlusOutline  className="m-0" size={35} color={"#008488"}/>}
                     classes="p-0"
-                    onClick={() => sendAction(actionIncreaseGuestChildren)}
+                    onClick={() => sendAction(actionIncreaseGuestChildren, location)}
                     disabled={disablePlusChildren}
           />
         </div>
@@ -192,7 +197,7 @@ export const GuestsDropdownOptions = ({
               className="m-0"
               size={35}
               color={"#008488"}/>}
-            onClick={() => sendAction(actionDecreaseGuestInfants)}
+            onClick={() => sendAction(actionDecreaseGuestInfants, location)}
             disabled={disableMinusInfants}
             classes="p-0"/>
         </div>
@@ -204,7 +209,7 @@ export const GuestsDropdownOptions = ({
         <div>
           <BtnInput
             classes="p-0"
-            onClick={() => sendAction(actionIncreaseGuestInfants)}
+            onClick={() => sendAction(actionIncreaseGuestInfants, location)}
             title={<IoIosPlusOutline className="m-0" size={35} color={"#008488"}/>}
             disabled={disablePlusInfants}
           />
@@ -217,17 +222,17 @@ export const GuestsDropdownOptions = ({
       }
     </div>
     <div className="d-flex justify-content-between mt-4 mb-3">
-      <div className="font-regular cursor underline-hover" onClick={() => sendAction(actionGuestTypeToggle)}>
-        Cancel
+      <div className="font-regular cursor underline-hover" onClick={cancelActions}>
+        Reset
       </div>
-      <div className="font-regular cursor underline-hover color-green">
+      <div className="font-regular cursor underline-hover color-green" onClick={applyActions}>
         Apply
       </div>
     </div>
   </div>
 );
 
-export const GuestOnlyDropDown = ({sendAction, actionGuestTypeToggle, listing, actionIncreaseGuestAdult, actionDecreaseGuestAdult}) => (
+export const GuestOnlyDropDown = ({sendAction, actionGuestTypeToggle, listing, actionIncreaseGuestAdult, actionDecreaseGuestAdult, actionResetData}) => (
   <div className="position-absolute w-100 bg-white py-2 px-3 border-right border-left border-bottom border-top-green">
     <div className="d-flex justify-content-between align-items-center pt-3">
       <div className="font-1">
@@ -256,10 +261,10 @@ export const GuestOnlyDropDown = ({sendAction, actionGuestTypeToggle, listing, a
       </div>
     </div>
     <div className="d-flex justify-content-between mt-4 mb-3">
-      <div className="font-regular cursor underline-hover" onClick={() => sendAction(actionGuestTypeToggle)}>
-        Cancel
+      <div className="font-regular cursor underline-hover" onClick={() => sendAction(actionResetData)}>
+        Reset
       </div>
-      <div className="font-regular cursor underline-hover color-green">
+      <div className="font-regular cursor underline-hover color-green" onClick={() => sendAction(actionGuestTypeToggle)}>
         Apply
       </div>
     </div>

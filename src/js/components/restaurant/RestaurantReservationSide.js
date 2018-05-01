@@ -3,7 +3,7 @@ import { GuestOnlyDropDown, LabelInputDropDownTrigger } from "../individual/Quic
 import { ReservationSlot } from "./ReservationMobile";
 import { SaveOrShareBottom } from "../IndividualListingExperience";
 import {
-  DECREASE_RESTAURANT_GUEST_COUNT, INCREASE_RESTAURANT_GUEST_COUNT,
+  DECREASE_RESTAURANT_GUEST_COUNT, INCREASE_RESTAURANT_GUEST_COUNT, RESET_RESTAURANT_GUEST_COUNT_INDIVIDUAL,
   TOGGLE_GUESTS_DROPDOWN_RESTAURANT
 } from "../../type";
 
@@ -28,6 +28,7 @@ export default ({classes, listing, sendAction}) => (
                                      actionIncreaseGuestAdult={INCREASE_RESTAURANT_GUEST_COUNT}
                                      actionDecreaseGuestAdult={DECREASE_RESTAURANT_GUEST_COUNT}
                                      actionGuestTypeToggle={TOGGLE_GUESTS_DROPDOWN_RESTAURANT}
+                                     actionResetData={RESET_RESTAURANT_GUEST_COUNT_INDIVIDUAL}
                                    />
                                  }
       />

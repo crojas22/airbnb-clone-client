@@ -16,27 +16,32 @@ export default props => {
   )
 };
 
-export const HomeFilterOptions = ({clickOnOff,guests}) => (
-  <React.Fragment>
-    <BtnInput title="Dates"
-              classes="border ml-1 mr-2 mt-1 font-regular btn-grey"
-              onClick={() => clickOnOff("dates")}
-    />
-    <BtnInput title="Guests"
-              classes={"border mr-2 mt-1 font-regular "+(guests?"text-white bg-green":"btn-grey")}
-              onClick={() => {
-                clickOnOff("guests");
-                clickOnOff("isModalOn");
-              }}
-    />
-    <BtnInput title="Home type" classes="border mr-2 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
-    <BtnInput title="Price" classes="border mr-2 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
-    <BtnInput title="Instant Book" classes="border mr-2 mt-1 font-regular btn-grey d-none d-lg-inline-block"/>
-    <BtnInput title="Trip type" classes="border mr-2 mt-1 font-regular btn-grey d-none d-lg-inline-block"/>
-    <BtnInput title="More filters" classes="border font-regular mt-1 btn-grey d-none d-sm-inline-block"/>
-    <BtnInput title="Filters" classes="border font-regular mt-1 btn-grey d-sm-none"/>
-  </React.Fragment>
-);
+export const HomeFilterOptions = ({clickOnOff,guests, settings}) => {
+  const totalGuests = settings.guests.guestCount.adults + settings.guests.guestCount.children + settings.guests.guestCount.infants
+  const guestsTitle = totalGuests > 1 ?
+    `${settings.guests.guestCount.adults + settings.guests.guestCount.children} guests${settings.guests.guestCount.infants>0?", "+settings.guests.guestCount.infants+(settings.guests.guestCount.infants<2?' infant': ' infants'):""}`: "Guests";
+  return(
+    <React.Fragment>
+      <BtnInput title="Dates"
+                classes="border ml-1 mr-2 mt-1 font-regular btn-grey"
+                onClick={() => clickOnOff("dates")}
+      />
+      <BtnInput title={guestsTitle}
+                classes={"border mr-2 mt-1 font-regular "+(guests || totalGuests > 1?"text-white bg-green":"btn-grey")}
+                onClick={() => {
+                  clickOnOff("guests");
+                  clickOnOff("isModalOn");
+                }}
+      />
+      <BtnInput title="Home type" classes="border mr-2 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
+      <BtnInput title="Price" classes="border mr-2 mt-1 font-regular btn-grey d-none d-sm-inline-block"/>
+      <BtnInput title="Instant Book" classes="border mr-2 mt-1 font-regular btn-grey d-none d-lg-inline-block"/>
+      <BtnInput title="Trip type" classes="border mr-2 mt-1 font-regular btn-grey d-none d-lg-inline-block"/>
+      <BtnInput title="More filters" classes="border font-regular mt-1 btn-grey d-none d-sm-inline-block"/>
+      <BtnInput title="Filters" classes="border font-regular mt-1 btn-grey d-sm-none"/>
+    </React.Fragment>
+  )
+};
 
 export const ExperienceFilterOptions = () => (
   <React.Fragment>

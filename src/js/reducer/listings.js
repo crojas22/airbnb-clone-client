@@ -1,9 +1,14 @@
 import {
+  CANCEL_CHANGES_TO_INDIVIDUAL_HOME_GUEST_COUNT_VALUE,
   DECREASE_HOME_GUEST_COUNT_ADULTS, DECREASE_HOME_GUEST_COUNT_CHILDREN, DECREASE_HOME_GUEST_COUNT_INFANTS,
-  DECREASE_RESTAURANT_GUEST_COUNT,
+  DECREASE_RESTAURANT_GUEST_COUNT, DECREASE_SEARCH_HOME_GUEST_COUNT_ADULTS, DECREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN,
+  DECREASE_SEARCH_HOME_GUEST_COUNT_INFANTS,
   FETCH_SEARCH_DATA, INCREASE_HOME_GUEST_COUNT_ADULTS, INCREASE_HOME_GUEST_COUNT_CHILDREN,
-  INCREASE_HOME_GUEST_COUNT_INFANTS, INCREASE_RESTAURANT_GUEST_COUNT,
-  RESET_INDIVIDUAL_DATA, RESET_SEARCH_DATA, SEARCH_PAGE_LOADING_FALSE, SET_DATA, SET_INDIVIDUAL_EXPERIENCE_DATA,
+  INCREASE_HOME_GUEST_COUNT_INFANTS, INCREASE_RESTAURANT_GUEST_COUNT, INCREASE_SEARCH_HOME_GUEST_COUNT_ADULTS,
+  INCREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN, INCREASE_SEARCH_HOME_GUEST_COUNT_INFANTS,
+  RESET_INDIVIDUAL_DATA, RESET_RESTAURANT_GUEST_COUNT_INDIVIDUAL, RESET_SEARCH_DATA, RESET_SEARCH_HOME_GUEST_COUNT,
+  SEARCH_PAGE_LOADING_FALSE, SET_DATA,
+  SET_INDIVIDUAL_EXPERIENCE_DATA,
   SET_INDIVIDUAL_HOME_DATA, SET_RESTAURANT_DATA,
   SET_SEARCH_DATA, TOGGLE_GUESTS_DROPDOWN_HOME, TOGGLE_GUESTS_DROPDOWN_RESTAURANT
 } from "../type";
@@ -89,7 +94,11 @@ const initialSearchOptionsSettingsState = {
     },
     guests: {
       isSelected: false,
-      count: 1
+      guestCount: {
+        adults: 1,
+        children: 0,
+        infants: 0
+      }
     },
     homeType: {
     
@@ -108,16 +117,130 @@ const initialSearchOptionsSettingsState = {
     }
   },
   experiences: {
-  
+    guests: {
+      isSelected: false,
+      guestCount: {
+        adults: 1,
+        children: 0,
+        infants: 0
+      }
+    },
   },
   restaurants: {
-  
+    guests: {
+      isSelected: false,
+      guestCount: {
+        adults: 1,
+        children: 0,
+        infants: 0
+      }
+    },
   }
 };
 
 export const searchOptionsSettings = (state=initialSearchOptionsSettingsState, action) => {
   switch (action.type) {
-  
+    case INCREASE_SEARCH_HOME_GUEST_COUNT_ADULTS:
+      return {
+        ...state,
+        homes: {
+          ...state.homes,
+          guests: {
+            ...state.homes.guests,
+            guestCount: {
+              ...state.homes.guests.guestCount,
+              adults: state.homes.guests.guestCount.adults += 1
+            }
+          }
+        }
+      };
+    case DECREASE_SEARCH_HOME_GUEST_COUNT_ADULTS:
+      return {
+        ...state,
+        homes: {
+          ...state.homes,
+          guests: {
+            ...state.homes.guests,
+            guestCount: {
+              ...state.homes.guests.guestCount,
+              adults: state.homes.guests.guestCount.adults -= 1
+            }
+          }
+        }
+      };
+    case INCREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN:
+      return {
+        ...state,
+        homes: {
+          ...state.homes,
+          guests: {
+            ...state.homes.guests,
+            guestCount: {
+              ...state.homes.guests.guestCount,
+              children: state.homes.guests.guestCount.children += 1
+            }
+          }
+        }
+      };
+    case DECREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN:
+      return {
+        ...state,
+        homes: {
+          ...state.homes,
+          guests: {
+            ...state.homes.guests,
+            guestCount: {
+              ...state.homes.guests.guestCount,
+              children: state.homes.guests.guestCount.children -= 1
+            }
+          }
+        }
+      };
+    case INCREASE_SEARCH_HOME_GUEST_COUNT_INFANTS:
+      return {
+        ...state,
+        homes: {
+          ...state.homes,
+          guests: {
+            ...state.homes.guests,
+            guestCount: {
+              ...state.homes.guests.guestCount,
+              infants: state.homes.guests.guestCount.infants += 1
+            }
+          }
+        }
+      };
+    case DECREASE_SEARCH_HOME_GUEST_COUNT_INFANTS:
+      return {
+        ...state,
+        homes: {
+          ...state.homes,
+          guests: {
+            ...state.homes.guests,
+            guestCount: {
+              ...state.homes.guests.guestCount,
+              infants: state.homes.guests.guestCount.infants -= 1
+            }
+          }
+        }
+      };
+    case RESET_SEARCH_HOME_GUEST_COUNT:
+      return {
+        ...state,
+        homes: {
+          ...state.homes,
+          guests: {
+            ...state.homes.guests,
+            guestCount: {
+              adults: 1,
+              children: 0,
+              infants: 0
+            }
+          }
+        }
+      };
+    default:
+      return state
   }
 };
 
@@ -145,6 +268,15 @@ export const individualHomeListing = (state=homeInitialState, action) => {
         settings: {
           ...state.settings,
           guestsDropdownIsOpen: !state.settings.guestsDropdownIsOpen
+        }
+      };
+    case CANCEL_CHANGES_TO_INDIVIDUAL_HOME_GUEST_COUNT_VALUE:
+      return {
+        ...state,
+        guestCount: {
+          adults: 1,
+          children: 0,
+          infants: 0
         }
       };
     case INCREASE_HOME_GUEST_COUNT_ADULTS:
@@ -259,6 +391,13 @@ export const individualRestaurant = (state=individualRestaurantState, action) =>
         ...state,
         guestCount: {
           guests: state.guestCount.guests -= 1
+        }
+      };
+    case RESET_RESTAURANT_GUEST_COUNT_INDIVIDUAL:
+      return {
+        ...state,
+        guestCount: {
+          guests: 2
         }
       };
     case RESET_INDIVIDUAL_DATA:

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import {
   individualExperienceListing, individualHomeListing, individualRestaurant, listings,
-  searchData
+  searchData, searchOptionsSettings
 } from "./listings";
 
 const reducer  = combineReducers({
@@ -9,7 +9,8 @@ const reducer  = combineReducers({
   individualHomeListing,
   individualExperienceListing,
   individualRestaurant,
-  searchData
+  searchData,
+  searchOptionsSettings
 });
 
 export default reducer;

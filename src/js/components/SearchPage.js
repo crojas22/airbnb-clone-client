@@ -13,11 +13,12 @@ import SearchResults, {
 } from "./search/SearchResults";
 import { fetchData, sendAction, setData } from "../action";
 import {
-  DECREASE_HOME_GUEST_COUNT_ADULTS,
-  DECREASE_HOME_GUEST_COUNT_CHILDREN, DECREASE_HOME_GUEST_COUNT_INFANTS, FETCH_SEARCH_DATA,
-  INCREASE_HOME_GUEST_COUNT_ADULTS,
-  INCREASE_HOME_GUEST_COUNT_CHILDREN, INCREASE_HOME_GUEST_COUNT_INFANTS, RESET_SEARCH_DATA,
-  SEARCH_PAGE_LOADING_FALSE, TOGGLE_GUESTS_DROPDOWN_HOME
+  DECREASE_SEARCH_HOME_GUEST_COUNT_ADULTS, DECREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN,
+  DECREASE_SEARCH_HOME_GUEST_COUNT_INFANTS,
+  FETCH_SEARCH_DATA, INCREASE_SEARCH_HOME_GUEST_COUNT_ADULTS, INCREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN,
+  INCREASE_SEARCH_HOME_GUEST_COUNT_INFANTS,
+  RESET_SEARCH_DATA, RESET_SEARCH_HOME_GUEST_COUNT,
+  SEARCH_PAGE_LOADING_FALSE
 } from "../type";
 import { Loading } from "./reusable/Loading";
 import GoogleMapApi from "./reusable/GoogleMapApi";
@@ -42,41 +43,70 @@ class SearchPage extends Component {
   
   clickOnOff = target => this.setState(prevState => ({[target]: !prevState[target]}));
   
+  clickOff = evt => {
+    if (evt.target === document.querySelector("#partialModal")) {
+      this.setState({isModalOn: false, guests: false})
+    }
+  };
+  
   render() {
     if (this.props.isLoading) {
       return <Loading />
     }
+    const { location, data, pageSettings, sendAction, setData, match } = this.props;
     return(
       <div className="position-relative">
         <Navigation classes="fixed w-100 bg-white z-100"/>
         {
-          (this.props.location.pathname === "/search/homes" &&
+          (location.pathname === "/search/homes" &&
           <React.Fragment>
             <SearchFilter classes="fixed w-100 bg-white z-50"
-                          options={<HomeFilterOptions {...this.state} clickOnOff={this.clickOnOff}/>}/>
-            <SearchResults data={this.props.data}
+                          options={<HomeFilterOptions {...this.state} clickOnOff={this.clickOnOff} settings={pageSettings}/>}/>
+            <SearchResults data={data}
                            to="home"
                            withMap={true}
                            component={SingleLink}
                            linkClass="col-lg-6 col-xl-4 col-sm-6 my-2"
                            header={<HomeResultsHeader/>}/>
             <PartialModal
+              clickOff={this.clickOff}
               InnerComponent={
-                <GuestsDropdownOptions
-                  sendAction={sendAction}
-                  adultsCount
-                />
+                <div style={{width: 350, left: 93}} className="position-relative">
+                  <GuestsDropdownOptions
+                    sendAction={setData}
+                    cancelActions={() => sendAction(RESET_SEARCH_HOME_GUEST_COUNT)}
+                    applyActions={() => {
+                      this.clickOnOff("guests");
+                      this.clickOnOff("isModalOn");
+                    }}
+                    location={match.params.type}
+                    classes="border-top rounded"
+                    adultsCount={pageSettings.guests.guestCount.adults + "+"}
+                    childrenCount={pageSettings.guests.guestCount.children+"+"}
+                    infantsCount={pageSettings.guests.guestCount.infants+"+"}
+                    actionIncreaseGuestAdult={INCREASE_SEARCH_HOME_GUEST_COUNT_ADULTS}
+                    disablePlusAdult={pageSettings.guests.guestCount.adults > 9}
+                    actionDecreaseGuestAdult={DECREASE_SEARCH_HOME_GUEST_COUNT_ADULTS}
+                    disableMinusAdult={pageSettings.guests.guestCount.adults < 2}
+                    actionIncreaseGuestChildren={INCREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN}
+                    disablePlusChildren={pageSettings.guests.guestCount.children > 4}
+                    actionDecreaseGuestChildren={DECREASE_SEARCH_HOME_GUEST_COUNT_CHILDREN}
+                    disableMinusChildren={pageSettings.guests.guestCount.children < 1}
+                    actionIncreaseGuestInfants={INCREASE_SEARCH_HOME_GUEST_COUNT_INFANTS}
+                    disablePlusInfants={pageSettings.guests.guestCount.infants > 4}
+                    actionDecreaseGuestInfants={DECREASE_SEARCH_HOME_GUEST_COUNT_INFANTS}
+                    disableMinusInfants={pageSettings.guests.guestCount.infants < 1}
+                  />
+                </div>
               }
-              style={{width: 350, left: 93}}
-              classes="position-relative"
               active={this.state.isModalOn}
             />
             <div className="position-fixed w-35 right-0 top-145">
               <div className="d-none d-lg-block">
                 <GoogleMapApi
-                  listings={this.props.data}
+                  listings={data}
                   zoom={4}
-                  height="83vh"
+                  height="85vh"
                   multiple={true}
                   latitude={37.090240}
                   longitude={-95.712891}
@@ -86,11 +116,11 @@ class SearchPage extends Component {
           </React.Fragment>)
         }
         {
-          (this.props.location.pathname === "/search/experiences" &&
+          (location.pathname === "/search/experiences" &&
             <React.Fragment>
               <SearchFilter classes="fixed w-100 bg-white z-50"
                             options={<ExperienceFilterOptions />}/>
-              <SearchResults data={this.props.data}
+              <SearchResults data={data}
                              to="experience"
                              withMap={true}
                              component={SingleLink}
@@ -99,9 +129,9 @@ class SearchPage extends Component {
               <div className="position-fixed w-35 right-0 top-145">
                 <div className="d-none d-lg-block">
                   <GoogleMapApi
-                    listings={this.props.data}
+                    listings={data}
                     zoom={4}
-                    height="83vh"
+                    height="85vh"
                     multiple={true}
                     latitude={37.090240}
                     longitude={-95.712891}
@@ -111,7 +141,7 @@ class SearchPage extends Component {
             </React.Fragment>)
         }
         {
-          (this.props.location.pathname === "/search/restaurants" &&
+          (location.pathname === "/search/restaurants" &&
             <React.Fragment>
               <SearchFilter
                 classes="fixed w-100 bg-white z-50 pl-md-5"
@@ -121,13 +151,13 @@ class SearchPage extends Component {
                 <h3 className="mb-0 pt-4">Restaurants in the spotlight</h3>
                 <GroupOfLinks to="restaurant"
                               component={SingleRestaurantLink}
-                              homeListing={this.props.data.slice(0,8)}/>
+                              homeListing={data.slice(0,8)}/>
               </div>
               <div className="px-3 px-sm-4 px-md-5 mx-md-4 mt-2">
                 <h3 >Restaurants around america</h3>
                 <GroupOfLinks to="restaurant"
                               component={SingleRestaurantLink}
-                              homeListing={this.props.data.slice(4)}/>
+                              homeListing={data.slice(4)}/>
               </div>
             </React.Fragment>
           )
@@ -137,9 +167,10 @@ class SearchPage extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
   isLoading: state.searchData.isLoading,
-  data: state.searchData.listings
+  data: state.searchData.listings,
+  pageSettings: state.searchOptionsSettings[props.match.params.type]
 });
 
 const mapDispatchToProps = dispatch => (

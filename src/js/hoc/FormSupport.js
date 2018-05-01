@@ -10,6 +10,7 @@ const FormSupport = InnerComponent => {
       };
       this.focusHandle = this.focusHandle.bind(this);
     }
+    
     focusHandle(e, search, active) {
       this.setState({[active]: e.target === document.getElementById(search)})
     }
